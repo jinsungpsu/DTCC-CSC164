@@ -145,6 +145,28 @@
                     "title": "File Input/Output"
                 }
             ]
+        },
+        {
+            "folder": "module12",
+            "title": "MoFile Input/Output and Exceptions",
+            "lectures": [
+                {
+                    "file": "01_cs2_exam1_review.md",
+                    "title": "CSC164 Exam 1 Review"
+                },
+                {
+                    "file": "02_cs2_exam2_review.md",
+                    "title": "CSC164 Exam 2 Review"
+                },
+                {
+                    "file": "03_cs2_exam3_review.md",
+                    "title": "CSC164 Exam 3 Review"
+                },
+                {
+                    "file": "04_cs2_exam4_review.md",
+                    "title": "CSC164 Exam 4 Review"
+                }
+            ]
         }
     ]
 }
