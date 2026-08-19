@@ -15,13 +15,13 @@
     
     /* ----- Body Text ----- */
     --body-font-size: calc(0.8em * var(--font-scale));
-    --body-line-height: 1.4;
+    --body-line-height: 1.0;
     --body-color: #ddd;
     --body-margin: 0.3em 0;
     
     /* ----- Lists ----- */
     --list-font-size: calc(0.8em * var(--font-scale));
-    --list-line-height: 0.8;
+    --list-line-height: 1.0em;
     --list-color: #ddd;
     --list-padding-left: 1.8em;
     --list-margin: 0.15em 0;
@@ -40,7 +40,7 @@
     --code-border-radius: 3px;
     
     /* ----- Pre (Code Blocks) ----- */
-    --pre-font-size: calc(0.85em * var(--font-scale));
+    --pre-font-size: calc(0.7em * var(--font-scale));
     --pre-background: rgba(255, 255, 255, 0.05);
     --pre-color: #f8f8f2;
     --pre-padding: 0.6em 0.8em;
