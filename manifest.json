@@ -1,4 +1,10 @@
 {
+    "course": {
+        "code": "CSC164",
+        "name": "Computer Science II",
+        "institution": "Delaware Technical Community College",
+        "title": "CSC164, Object Oriented Programming Course"
+    },
     "modules": [
         {
             "folder": "module01",

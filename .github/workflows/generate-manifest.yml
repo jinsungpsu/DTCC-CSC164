@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "manifest.json"
 
 jobs:
   build-manifest:
@@ -23,7 +25,7 @@ jobs:
 
       - name: Generate manifest
         run: |
-          python generate_manifest.py
+          python framework/tools/generate_manifest.py
 
       - name: Commit manifest if changed
         run: |
@@ -32,7 +34,7 @@ jobs:
 
           git add manifest.json
 
-          git diff --staged --quiet || \
-          git commit -m "Auto-update manifest"
-
-          git push
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-update manifest"
+            git push
+          fi
