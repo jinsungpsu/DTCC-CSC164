@@ -1,6 +1,14 @@
+# Programming and Debugging in Review
+<!-- footer -->
+Delaware Technical Community College
+
+---
+
 # Pseudocode and Stepwise Refinement
-- Textbook Section 3.2.1
-- https://math.hws.edu/javanotes/c3/s2.html
+## Textbook Section 3.2.1
+
+<!-- footer -->
+https://math.hws.edu/javanotes/c3/s2.html
 
 ---
 
@@ -48,8 +56,10 @@
 ---
 
 # Coding, Testing, Debugging
-- Textbook Section 3.2.3
-- https://math.hws.edu/javanotes/c3/s2.html
+## Textbook Section 3.2.3
+
+<!-- footer -->
+https://math.hws.edu/javanotes/c3/s2.html
 
 ---
 
@@ -89,27 +99,18 @@
 
 ---
 
-# Programming Style
-- Indentation
-- Comments
-- Same as C++
-- // single line
-- /* multi line */
-
----
-
 # More on Java Programming and Review
 
 ---
 
 # Blocks
 - What is a Code Block?
-- A code block is a group of statements that are treated as a single unit.
-- In Java and many other languages, code blocks are enclosed in curly braces {}.
+    - A code block is a group of statements that are treated as a single unit.
+    - In Java and many other languages, code blocks are enclosed in curly braces {}.
 - Purpose of Code Blocks
-- Define the body of control structures like if, while, for, and methods.
-- Help organize code logically and visually.
-- Ensure that multiple statements are executed together.
+    - Define the body of control structures like if, while, for, and methods.
+    - Help organize code logically and visually.
+    - Ensure that multiple statements are executed together.
 
 ---
 
@@ -130,11 +131,12 @@
 - start with lower case for variable names
 - start with upper case for class names
 - use camelCase for multiple words
-- For class names, variable names, function/method names
+    - For class names, variable names, function/method names
 
 ---
 
-# Specific identifier name rules in java
+# Naming Conventions
+## Specific identifier name rules in java
 - Consists of letters, digits, underscores, and dollar signs
 - Must start with a letter, underscore, or dollar sign (cannot start with number)
 
@@ -145,75 +147,147 @@
 - use all upper case
 - can’t use camelCase, since it’s all upper case, use under_score between words
 - must be initialized with a value
-- final int NUM_STUDENTS = 5;
 
+```java
+final int NUM_STUDENTS = 5;
+```
 ---
 
 # Modulus review
 - Simply the remainder part of division
 - Uses of %
-- even, odd
-- “wrapping around”
-- something that happens every n-th time in a loop
+    - even, odd
+    - “wrapping around”
+        - something that happens every n-th time in a loop
 
 ---
 
 # Increment / Decrement
 - preincrement/predecrement
-- ++var, --var
-- Change the value and use the new value in the statement
+    - ++var, --var
+    - Change the value and use the new value in the statement
 - postincrement/postdecrement
-- var++, var--
-- Use the value and use the old value in the statement
+    - var++, var--
+    - Use the value and use the old value in the statement
 
 ---
 
-# Type Conversions
-- All operations
+# Java Numeric Type Promotion & Demotion
+### Promotion ↑ (Automatic Promotion)
+
+double
+
+⬆
+
+float
+
+⬆
+
+long
+
+⬆
+
+int
+
+⬆
+
+short
+
+⬆
+
+byte
 
 ---
+# Java Numeric Type Promotion & Demotion
 
-# Implicit vs Explicit Conversions
-- explicit
-- implicit
+### Demotion ↓ (Explicit Demotion)
+double
 
+⬇ cast
+
+float
+
+⬇ cast
+
+long
+
+⬇ cast
+
+int
+
+⬇ cast
+
+short
+
+⬇ cast
+
+byte
+
+---
+# Java Numeric Type Promotion & Demotion Examples
+```java
+byte b = 100;
+int n = b;          // promotion
+
+double d = 3.14;
+int x = (int)d;     // demotion
+```
 ---
 
 # Type casting
-- int smallNum = 5;
-- System.out.print(smallNum / 2); // will print 2
-- System.out.print((double)smallNum / 2); // will print 2.5
 
+```java
+int smallNum = 5;
+
+System.out.print(smallNum / 2); 
+// will print 2
+
+System.out.print((double)smallNum / 2); 
+// will print 2.5
+```
 ---
 
 # Analogy
+<!-- column -->
 - Overflow *can* occur when converting from a bigger type to a smaller type - so it must be done explicitly.
-- double bigNumber = 1234.5678;
-- int smallNumber = (int) bigNumber; // this works
-- int smallNumber = bigNumber; // this is an error
-- image from chatGPT
+```java
+double bigNumber = 1234.5678;
 
+int smallNumber = (int) bigNumber; 
+// this works
+
+int smallNumber = bigNumber; 
+// this is an error
+```
+<!-- column -->
+![Overflow illustration pouring large amount of water from a 5 gallon bucket into small 8 oz cup and water overflowing](images/overflow.png)
 ---
 
 # String concatenation for output
-- int students = 5;
-- System.out.print(“The number of students is “ + students);
+```java
+int students = 5;
+System.out.print("The number of students is " + students);
+```
 - What’s actually happening?
 - The students variable is being converted to a string, then “added” to the rest of the string
 
 ---
 
-# System.out.print examples of conversion
-- System.out.print(1 + 1);
-- // this outputs 2
-- System.out.print(“The sum is “ + 1 + 1);
-- // the output is The sum is 11
-- // because the 1’s are being treated as strings
-- System.out.print(“The sum is “ + (1+1));
-- // the output is The sum is 2
-- // because the (1+1) makes the operator precedence
-- // add the 1+1 as integers first,
-- // THEN gets converted to a string
-- // before being added to the “The sum is “ string
-
+# Print examples of conversion
+```java
+System.out.print(1 + 1);
+// this outputs 2
+System.out.print("The sum is " + 1 + 1);
+// the output is The sum is 11
+// because the 1’s are being treated as strings
+System.out.print("The sum is " + (1+1));
+// the output is The sum is 2
+// because the (1+1) makes the operator precedence
+// add the 1+1 as integers first,
+// THEN gets converted to a string
+// before being added to the "The sum is " string
+```
 ---
+
+# Next Lecture
+[User Input](../slide.html?deck=module02/csc164_02_user_input.md)

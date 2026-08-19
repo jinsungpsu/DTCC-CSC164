@@ -178,6 +178,10 @@ ${markdown}
             wireRevealEvents();
 
             Reveal.initialize({
+                width: '100%',
+                height: '100%',
+                center: false,
+                margin: 0.10,
                 hash: true,
                 controls: true,
                 progress: true,

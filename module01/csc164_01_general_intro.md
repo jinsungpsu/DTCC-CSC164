@@ -1,8 +1,8 @@
 # CSC164
-
 ## Computer Science II
 
-### Delaware Technical Community College
+<!-- footer -->
+Delaware Technical Community College
 
 ---
 
@@ -243,3 +243,6 @@ Plagiarism is the inclusion of someone else's words, ideas, or data as one's own
     - Graphical User Interfaces / JavaFX
 
 ---
+
+# Next Lecture
+[Computers and Programs](../slide.html?deck=module01/csc164_02_computers_and_programs.md)

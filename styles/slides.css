@@ -1,7 +1,7 @@
 /* ===== GLOBAL VARIABLES ===== */
 :root {
     /* ----- MASTER FONT SCALE ----- */
-    --font-scale: 1.0;
+    --font-scale: 1.5;
     
     /* ----- Headings ----- */
     --heading-h1-size: calc(1.5em * var(--font-scale));
@@ -20,7 +20,7 @@
     --body-margin: 0.3em 0;
     
     /* ----- Lists ----- */
-    --list-font-size: calc(0.8em * var(--font-scale));
+    --list-font-size: calc(0.65em * var(--font-scale));
     --list-line-height: 1.0em;
     --list-color: #ddd;
     --list-padding-left: 1.8em;
@@ -40,7 +40,7 @@
     --code-border-radius: 3px;
     
     /* ----- Pre (Code Blocks) ----- */
-    --pre-font-size: calc(0.7em * var(--font-scale));
+    --pre-font-size: calc(0.5em * var(--font-scale));
     --pre-background: rgba(255, 255, 255, 0.05);
     --pre-color: #f8f8f2;
     --pre-padding: 0.6em 0.8em;
@@ -220,7 +220,7 @@
 
 /* ===== CODE ===== */
 .reveal code {
-    font-size: var(--code-font-size);
+    font-size: calc(1.75rem * var(--font-scale));
     background: var(--code-background);
     color: var(--code-color);
     padding: var(--code-padding);

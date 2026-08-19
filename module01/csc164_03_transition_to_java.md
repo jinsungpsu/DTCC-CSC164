@@ -1,6 +1,8 @@
-# Intro to Programming in Java
+# Transition from C++ to Java
 ## Practical Introduction
-## and transitioning from C++
+
+<!-- footer -->
+Delaware Technical Community College
 
 ---
 
