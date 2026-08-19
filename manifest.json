@@ -39,6 +39,112 @@
                     "title": "Java Errors"
                 }
             ]
+        },
+        {
+            "folder": "module03",
+            "title": "Java Arrays and Loops",
+            "lectures": [
+                {
+                    "file": "01_cs2_control_structures01.md",
+                    "title": "Control Structures I"
+                },
+                {
+                    "file": "02_cs2_control_structures02.md",
+                    "title": "Control Structures II"
+                },
+                {
+                    "file": "03_cs2_arrays_loops.md",
+                    "title": "Arrays"
+                }
+            ]
+        },
+        {
+            "folder": "module04",
+            "title": "Methods",
+            "lectures": [
+                {
+                    "file": "01_cs2_functions_methods.md",
+                    "title": "Methods"
+                },
+                {
+                    "file": "02_cs2_debugging_tools.md",
+                    "title": "Debugging I"
+                }
+            ]
+        },
+        {
+            "folder": "module05",
+            "title": "Object Oriented Programming",
+            "lectures": [
+                {
+                    "file": "01_cs2_oop_01.md",
+                    "title": "Objects and Classes"
+                },
+                {
+                    "file": "02_cs2_oop_02.md",
+                    "title": "OOP II"
+                }
+            ]
+        },
+        {
+            "folder": "module06",
+            "title": "More OOP: Inheritance",
+            "lectures": [
+                {
+                    "file": "01_cs2_inheritance.md",
+                    "title": "Inheritance & Polymorphism"
+                }
+            ]
+        },
+        {
+            "folder": "module07",
+            "title": "More OOP: Polymorphism",
+            "lectures": [
+                {
+                    "file": "01_cs2_polymorphism.md",
+                    "title": "Inheritance & Polymorphism"
+                }
+            ]
+        },
+        {
+            "folder": "module08",
+            "title": "Trends in Computing, Software, and the Internet",
+            "lectures": [
+                {
+                    "file": "01_cs2_tech_trends.md",
+                    "title": "Technology Trends and Societal Impacts"
+                }
+            ]
+        },
+        {
+            "folder": "module09",
+            "title": "Graphical User Interfaces (GUIs)",
+            "lectures": [
+                {
+                    "file": "01_cs2_javaFX.md",
+                    "title": "JavaFX Basics"
+                }
+            ]
+        },
+        {
+            "folder": "module10",
+            "title": "Event Driven Programming",
+            "lectures": [
+                {
+                    "file": "01_cs2_event_driven.md",
+                    "title": "Event Driven Programming"
+                }
+            ]
+        },
+        {
+            "folder": "module11",
+            "title": "MoFile Input/Output and Exceptions",
+            "lectures": [
+                {
+                    "file": "01_cs2_fileio.md",
+                    "title": "File Input/Output"
+                }
+            ]
         }
     ]
 }
