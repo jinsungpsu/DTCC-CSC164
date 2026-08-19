@@ -1,9 +1,4 @@
 {
-    "course": {
-        "code": "CSC164",
-        "name": "Computer Science II",
-        "institution": "Delaware Technical Community College"
-    },
     "modules": [
         {
             "folder": "module01",
