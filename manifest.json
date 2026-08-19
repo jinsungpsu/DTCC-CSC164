@@ -1,0 +1,44 @@
+{
+    "modules": [
+        {
+            "folder": "module01",
+            "title": "Introduction to the Course and Object Oriented Programming",
+            "lectures": [
+                {
+                    "file": "01_cs2_general_intro.md",
+                    "title": "CSC164"
+                },
+                {
+                    "file": "02_cs2_computers_and_programs.md",
+                    "title": "Computers and Programs"
+                },
+                {
+                    "file": "03_cs2_transition_to_java.md",
+                    "title": "Transition from C++ to Java"
+                }
+            ]
+        },
+        {
+            "folder": "module02",
+            "title": "Module 2: Introduction to Java",
+            "lectures": [
+                {
+                    "file": "01_cs2_programming_and_debugging.md",
+                    "title": "Programming and Debugging in Review"
+                },
+                {
+                    "file": "02_cs2_user_input.md",
+                    "title": "User Input"
+                },
+                {
+                    "file": "03_cs2_output_formatting.md",
+                    "title": "Output Formatting"
+                },
+                {
+                    "file": "04_cs2_java_errors.md",
+                    "title": "Java Errors"
+                }
+            ]
+        }
+    ]
+}

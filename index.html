@@ -17,75 +17,8 @@
             <p>Computer Science II</p>
         </div>
 
-        <div class="module-card">
-
-            <h2>Module 1:  Introduction to Object Oriented Programming</h2>
-
-            <a class="lecture-link" href="./slide.html?deck=module01/csc164_01_general_intro.md">
-                <div class="lecture-title">
-                    01-General Introduction
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
-
-            <a class="lecture-link" href="./slide.html?deck=module01/csc164_02_computers_and_programs.md">
-                <div class="lecture-title">
-                    02-Computers and Programs
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
-
-            <a class="lecture-link" href="./slide.html?deck=module01/csc164_03_transition_to_java.md">
-                <div class="lecture-title">
-                    03-Transition from C++ to Java
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
-
-        </div>
-
-        <div class="module-card">
-
-            <h2>Module 2: Introduction to Java</h2>
-
-            <a class="lecture-link" href="./slide.html?deck=module02/csc164_01_programming_and_debugging.md">
-                <div class="lecture-title">
-                    01-Programming and Debugging Review
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
-            <a class="lecture-link" href="./slide.html?deck=module02/csc164_02_user_input.md">
-                <div class="lecture-title">
-                    02-User Input
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
-            <a class="lecture-link" href="./slide.html?deck=module02/csc164_03_output_formatting.md">
-                <div class="lecture-title">
-                    03-Output Formatting
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
-            <a class="lecture-link" href="./slide.html?deck=module02/csc164_04_java_errors.md">
-                <div class="lecture-title">
-                    04-Java Errors
-                </div>
-                <div class="lecture-desc">
-                    Lecture Slides
-                </div>
-            </a>
+        <div id="modules-container">
+            <!-- dynamically generated -->
         </div>
 
         <div class="footer">
@@ -93,6 +26,93 @@
         </div>
 
     </div>
+
+    <script>
+
+        async function loadManifest() {
+
+            try {
+
+                const response = await fetch("manifest.json");
+
+                if (!response.ok) {
+                    throw new Error("Could not load manifest.json");
+                }
+
+                const manifest = await response.json();
+
+                renderModules(manifest.modules);
+
+            }
+            catch (error) {
+
+                document.getElementById("modules-container").innerHTML = `
+                    <div class="module-card">
+                        <h2>Error</h2>
+                        <p>Unable to load lecture catalog.</p>
+                    </div>
+                `;
+
+                console.error(error);
+            }
+        }
+
+        function renderModules(modules) {
+
+            const container =
+                document.getElementById("modules-container");
+
+            container.innerHTML = "";
+
+            modules.forEach((module, index) => {
+
+                const moduleCard =
+                    document.createElement("div");
+
+                moduleCard.className =
+                    "module-card";
+
+                const moduleTitle =
+                    document.createElement("h2");
+
+                moduleTitle.textContent =
+                    `Module ${index + 1}: ${module.title}`;
+
+                moduleCard.appendChild(moduleTitle);
+
+                module.lectures.forEach(lecture => {
+
+                    const lectureLink =
+                        document.createElement("a");
+
+                    lectureLink.className =
+                        "lecture-link";
+
+                    lectureLink.href =
+                        `./slide.html?deck=${module.folder}/${lecture.file}`;
+
+                    lectureLink.innerHTML = `
+                        <div class="lecture-title">
+                            ${lecture.title}
+                        </div>
+                        <div class="lecture-desc">
+                            Lecture Slides
+                        </div>
+                    `;
+
+                    moduleCard.appendChild(lectureLink);
+
+                });
+
+                container.appendChild(moduleCard);
+
+            });
+
+        }
+
+        loadManifest();
+
+    </script>
 
 </body>
 
