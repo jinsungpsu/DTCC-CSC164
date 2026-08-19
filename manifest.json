@@ -39,56 +39,6 @@
                     "title": "Java Errors"
                 }
             ]
-        },
-        {
-            "folder": "module03",
-            "title": "Java Arrays and Loops",
-            "lectures": [
-                {
-                    "file": "01_cs2_control_structures01.md",
-                    "title": "Control Structures I"
-                }
-            ]
-        },
-        {
-            "folder": "module04",
-            "title": "Methods",
-            "lectures": []
-        },
-        {
-            "folder": "module05",
-            "title": "Object Oriented Programming",
-            "lectures": []
-        },
-        {
-            "folder": "module06",
-            "title": "More OOP: Inheritance",
-            "lectures": []
-        },
-        {
-            "folder": "module07",
-            "title": "More OOP: Polymorphism",
-            "lectures": []
-        },
-        {
-            "folder": "module08",
-            "title": "Trends in Computing, Software, and the Internet",
-            "lectures": []
-        },
-        {
-            "folder": "module09",
-            "title": "Graphical User Interfaces (GUIs)",
-            "lectures": []
-        },
-        {
-            "folder": "module10",
-            "title": "Event Driven Programming",
-            "lectures": []
-        },
-        {
-            "folder": "module11",
-            "title": "MoFile Input/Output and Exceptions",
-            "lectures": []
         }
     ]
 }
