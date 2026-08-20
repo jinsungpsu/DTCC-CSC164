@@ -237,7 +237,9 @@ Plagiarism is the inclusion of someone else's words, ideas, or data as one's own
 - Getting Started Module
     - Instructor info
     - Syllabus
-    - Course Policies
+    - Course policies
+        - ***Late policy: 15% penalty per week, up to 2 weeks***
+            - **If there are extenuating circumstances, communicate them ASAP**
     - Evaluation Measures & Grading Breakdown
     - Course Schedule
 
