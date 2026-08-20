@@ -294,6 +294,3 @@ https://math.hws.edu/javanotes/c1/s5.html
 - Reflects real-world modeling and improves clarity.
 
 ---
-
-# Next Lecture
-[Transition from C++ to Java](../framework/slide.html?deck=module01/csc164_03_transition_to_java.md)

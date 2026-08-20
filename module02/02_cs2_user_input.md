@@ -92,6 +92,3 @@ char letter = input.next().charAt(0);
 
 
 ---
-
-# Next Lecture
-[Output Formatting](../slide.html?deck=module02/csc164_03_output_formatting.md)

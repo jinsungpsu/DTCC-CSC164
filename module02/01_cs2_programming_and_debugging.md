@@ -288,6 +288,3 @@ System.out.print("The sum is " + (1+1));
 // before being added to the "The sum is " string
 ```
 ---
-
-# Next Lecture
-[User Input](../slide.html?deck=module02/csc164_02_user_input.md)

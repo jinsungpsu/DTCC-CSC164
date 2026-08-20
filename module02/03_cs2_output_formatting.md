@@ -302,6 +302,3 @@ System.out.printf("Hi my name is %s %s and my age is %d and my grade is %.2f",
 ```
 
 ---
-
-# Next Lecture
-[Java Errors](../slide.html?deck=module02/csc164_04_java_errors.md)

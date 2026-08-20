@@ -8,6 +8,9 @@ Delaware Technical Community College
 
 # Introductions
 
+- About me
+- About you
+- About the course
 ---
 
 # Me
@@ -50,7 +53,7 @@ Delaware Technical Community College
 # Resources
 
 - Alerts
-    - https://dtcc.regroup.com/network/dtcc/preferences/profile
+    - https://dtcc.app.regroup.com/
 - Student Support Center
     - https://www.dtcc.edu/support
 - Students in Need
@@ -60,29 +63,42 @@ Delaware Technical Community College
 
 ---
 
-# Ground Rules
-
----
-
-# Treat each other as adults
-
-- Be respectful
-- Put yourself in the best position to succeed. What are your goals?
-
-Possible situations:
-
-- Need to miss class?
-- Late submitting an assignment?
-- Conflict for an upcoming exam?
-- Need to go to the bathroom?
-- Expecting an important phone call?
-- Have a question about the topic we’re discussing?
-
----
-
 # Classroom Expectations
 
 ![No headphones or videos during class](images/no-headphones-videos.png)
+
+---
+
+# Ground Rules
+
+
+## Be respectful and professional
+
+- Be respectful of your classmates and instructor.
+
+## Focus on your goals
+
+- Think about your goals for this course and your future career.
+- Put yourself in the best position to succeed.
+
+## Communicate early
+
+- If something comes up, let me know as early as possible so we can work together on a solution.
+---
+
+
+
+# Scenarios
+
+Common situations where communication matters:
+
+- Need to miss class?
+- Need to submit an assignment late?
+- Have a conflict with an upcoming exam?
+- Need to step out briefly?
+- Expecting an important phone call?
+- Have a question about the topic we're discussing?
+
 
 ---
 
@@ -130,10 +146,6 @@ Possible situations:
 
 <!-- column -->
 ![AI Decorative Image](images/ai.jpg)
-
----
-
-# Academic Integrity
 
 ---
 
@@ -233,9 +245,7 @@ Plagiarism is the inclusion of someone else's words, ideas, or data as one's own
 
 # What's this course about?
 
----
-
-# Semester Overview
+## Semester Overview
 
 - Semester will be roughly in 3 sections
     - Review, transition to Java
@@ -243,6 +253,3 @@ Plagiarism is the inclusion of someone else's words, ideas, or data as one's own
     - Graphical User Interfaces / JavaFX
 
 ---
-
-# Next Lecture
-[Computers and Programs](../framework/slide.html?deck=module01/csc164_02_computers_and_programs.md)
