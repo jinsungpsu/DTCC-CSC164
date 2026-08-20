@@ -84,63 +84,123 @@
     --footer-max-width: 45vw;
 }
 
-/* ===== TOOLBAR - CENTERED ===== */
+/* ===== TOOLBAR - FULL WIDTH, SINGLE ROW ===== */
 #toolbar {
     position: fixed;
-    top: 12px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 10000;
     display: flex;
-    gap: 4px;
     align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 6px 16px;
+    background: rgba(30, 30, 40, 0.95);
+    border-bottom: 1px solid #444;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    min-height: 44px;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
+/* ===== TOOLBAR GROUPS ===== */
+.toolbar-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 12px;
+    border-right: 1px solid #3a3a4a;
+    min-height: 34px;
+    flex-shrink: 0;
+}
+
+.toolbar-group:last-child {
+    border-right: none;
+}
+
+/* ===== GROUP LABELS - WHITE, CONSISTENT ===== */
+.toolbar-group-label {
+    font-size: 11px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-right: 6px;
+    font-weight: 600;
+    user-select: none;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* ===== TOOLBAR BUTTONS - UNIFORM ===== */
 #toolbar button,
-#searchBtn {
-    height: 34px;
-    padding: 0 10px;
+#searchBtn,
+.toolbar-group .slide-menu-button a {
+    height: 30px;
+    padding: 0 12px;
     border: 1px solid #555;
     border-radius: 4px;
-    background: rgba(30, 30, 30, .85);
+    background: rgba(255, 255, 255, 0.05);
     color: #ddd;
-    font-size: 14px;
+    font-size: 13px;
+    font-family: inherit;
     cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    flex-shrink: 0;
 }
 
 #toolbar button:hover,
-#searchBtn:hover {
-    background: rgba(50, 50, 50, .95);
+#searchBtn:hover,
+.toolbar-group .slide-menu-button a:hover {
+    background: rgba(255, 255, 255, 0.12);
     border-color: #888;
-    color: white;
+    color: #ffffff;
 }
 
 #toolbar button:active,
-#searchBtn:active {
-    transform: scale(.96);
+#searchBtn:active,
+.toolbar-group .slide-menu-button a:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 #toolbar button:focus,
 #searchBtn:focus {
     outline: none;
+    border-color: #8af;
+    box-shadow: 0 0 0 2px rgba(136, 170, 255, 0.2);
 }
 
-/* Keep Reveal search UI below the fixed search button */
-.reveal .searchbox {
-    position: fixed !important;
-    top: 56px !important;
-
-    left: calc(50% + 195px) !important;
-    right: auto !important;
-
-    transform: translateX(-50%) !important;
-
-    width: 400px;
-    max-width: 80vw;
+#toolbar button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
 }
 
-.fullscreen-mode #toolbar button:not(#fullscreenBtn) {
-    display: none;
+#toolbar button:disabled:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #555;
+    transform: none;
+}
+
+/* ===== LECTURE NAV INFO ===== */
+#lecture-nav-info {
+    color: #8af;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0 6px;
+    min-width: 50px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    flex-shrink: 0;
 }
 
 /* ===== TOOLBAR: CUSTOM CONTROLS ===== */
@@ -167,7 +227,7 @@
     margin: 0;
 }
 
-/* ===== TOOLBAR: SLIDE MENU BUTTON (overriding plugin defaults) ===== */
+/* ===== TOOLBAR: SLIDE MENU BUTTON ===== */
 #toolbar .slide-menu-button {
     position: static !important;
     display: flex !important;
@@ -182,30 +242,84 @@
 }
 
 #toolbar .slide-menu-button a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 34px;
-    padding: 0 10px;
-    border: 1px solid #555;
-    border-radius: 4px;
-    background: rgba(30, 30, 30, .85);
-    color: #ddd;
     text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-#toolbar .slide-menu-button a:hover {
-    background: rgba(50, 50, 50, .95);
-    border-color: #888;
-    color: white;
 }
 
 #toolbar .slide-menu-button svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     display: block;
+}
+
+/* ===== FULLSCREEN MODE - ONLY THE EXIT BUTTON VISIBLE ===== */
+.fullscreen-mode #toolbar {
+    opacity: 1;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.fullscreen-mode #toolbar .toolbar-group,
+.fullscreen-mode #toolbar .toolbar-group-label,
+.fullscreen-mode #toolbar #lecture-nav-info,
+.fullscreen-mode #toolbar #searchBtn,
+.fullscreen-mode #toolbar #menuBtn,
+.fullscreen-mode #toolbar #prevBtn,
+.fullscreen-mode #toolbar #nextBtn,
+.fullscreen-mode #toolbar #homeBtn,
+.fullscreen-mode #toolbar #prevLectureBtn,
+.fullscreen-mode #toolbar #nextLectureLectureBtn,
+.fullscreen-mode #toolbar #notesBtn,
+.fullscreen-mode #toolbar #printBtn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+.fullscreen-mode #toolbar #fullscreenBtn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: 30px !important;
+    padding: 0 12px !important;
+    margin: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.fullscreen-mode #toolbar #fullscreenBtn:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    transform: scale(1.05);
+}
+
+.fullscreen-mode #toolbar #fullscreenBtn:active {
+    transform: scale(0.95);
+}
+
+/* ===== SEARCH UI ===== */
+.reveal .searchbox {
+    position: fixed !important;
+    top: 52px !important;
+    left: 75% !important;
+    transform: translateX(-50%) !important;
+    width: 400px;
+    max-width: 80vw;
+    z-index: 10001 !important;
 }
 
 /* ===== HEADINGS ===== */
@@ -512,6 +626,139 @@ img.large {
 
 .columns-container .col:only-child {
     flex: 1;
+}
+
+/* ===== RESPONSIVE - TOOLBAR ===== */
+@media (max-width: 1024px) {
+    #toolbar {
+        padding: 4px 10px;
+        min-height: 38px;
+        justify-content: flex-start;
+    }
+
+    .toolbar-group {
+        padding: 0 8px;
+    }
+
+    #toolbar button,
+    #searchBtn,
+    .toolbar-group .slide-menu-button a {
+        font-size: 12px;
+        padding: 0 8px;
+        height: 26px;
+    }
+
+    .toolbar-group-label {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+
+    #lecture-nav-info {
+        font-size: 12px;
+        min-width: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    #toolbar {
+        padding: 3px 6px;
+        min-height: 34px;
+        gap: 0;
+    }
+
+    .toolbar-group {
+        padding: 0 4px;
+        gap: 2px;
+    }
+
+    .toolbar-group-label {
+        display: none;
+    }
+
+    #toolbar button,
+    #searchBtn,
+    .toolbar-group .slide-menu-button a {
+        font-size: 10px;
+        padding: 0 5px;
+        height: 22px;
+        min-width: 24px;
+    }
+
+    #lecture-nav-info {
+        font-size: 10px;
+        min-width: 30px;
+        padding: 0 3px;
+    }
+
+    .toolbar-group {
+        border-right: 1px solid #2a2a3a;
+    }
+
+    .toolbar-group:last-child {
+        border-right: none;
+    }
+}
+
+@media (max-width: 500px) {
+    #toolbar {
+        padding: 2px 4px;
+        min-height: 30px;
+        gap: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    #toolbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .toolbar-group {
+        padding: 0 3px;
+        gap: 1px;
+        border-right: 1px solid #2a2a3a;
+        min-height: 26px;
+        flex-shrink: 0;
+    }
+
+    .toolbar-group:last-child {
+        border-right: none;
+    }
+
+    #toolbar button,
+    #searchBtn,
+    .toolbar-group .slide-menu-button a {
+        font-size: 9px;
+        padding: 0 4px;
+        height: 20px;
+        min-width: 20px;
+        border-width: 1px;
+    }
+
+    #lecture-nav-info {
+        font-size: 9px;
+        min-width: 24px;
+        padding: 0 2px;
+    }
+}
+
+/* ===== FULLSCREEN MODE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .fullscreen-mode #toolbar #fullscreenBtn {
+        height: 26px !important;
+        padding: 0 10px !important;
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .fullscreen-mode #toolbar #fullscreenBtn {
+        height: 22px !important;
+        padding: 0 8px !important;
+        font-size: 14px !important;
+    }
 }
 
 /* ===== FOOTER - FIXED TO VIEWPORT BOTTOM LEFT ===== */
