@@ -1,6 +1,5 @@
 # CSC164
 ## Computer Science II
 ### Delaware Technical Community College
-#### CSC164, Lecture Slides changed!
 
-Test Change
+These slides are currently still being updated, so they may have some inaccuracies or missing images.

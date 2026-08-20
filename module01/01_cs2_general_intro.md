@@ -251,5 +251,3 @@ Plagiarism is the inclusion of someone else's words, ideas, or data as one's own
     - Review, transition to Java
     - Object Oriented Programming
     - Graphical User Interfaces / JavaFX
-
----
