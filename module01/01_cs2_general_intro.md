@@ -1,4 +1,4 @@
-# CSC164
+# Intro to CSC164
 ## Computer Science II
 
 <!-- footer -->
@@ -245,4 +245,4 @@ Plagiarism is the inclusion of someone else's words, ideas, or data as one's own
 ---
 
 # Next Lecture
-[Computers and Programs](../slide.html?deck=module01/csc164_02_computers_and_programs.md)
+[Computers and Programs](../framework/slide.html?deck=module01/csc164_02_computers_and_programs.md)
