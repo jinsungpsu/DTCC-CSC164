@@ -204,7 +204,7 @@ ${markdown}
                 menu: {
                     // Specifies which side of the presentation the menu will
                     // be shown. Use 'left' or 'right'.
-                    side: 'left',
+                    side: 'right',
 
                     // Specifies the width of the menu.
                     // Can be one of the following:
