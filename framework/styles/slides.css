@@ -2,7 +2,7 @@
 :root {
     /* ----- MASTER FONT SCALE ----- */
     --font-scale: 1.5;
-    
+
     /* ----- Headings ----- */
     --heading-h1-size: calc(1.5em * var(--font-scale));
     --heading-h2-size: calc(1.2em * var(--font-scale));
@@ -12,13 +12,13 @@
     --heading-h6-size: calc(0.4em * var(--font-scale));
     --heading-color: #fff;
     --heading-margin: 0.3em 0 0.2em 0;
-    
+
     /* ----- Body Text ----- */
     --body-font-size: calc(0.8em * var(--font-scale));
     --body-line-height: 1.0;
     --body-color: #ddd;
     --body-margin: 0.3em 0;
-    
+
     /* ----- Lists ----- */
     --list-font-size: calc(0.65em * var(--font-scale));
     --list-line-height: 1.0em;
@@ -27,18 +27,18 @@
     --list-margin: 0.15em 0;
     --list-item-margin: 0.05em 0;
     --list-item-padding: 0;
-    
+
     /* ----- Nested Lists ----- */
     --nested-list-padding-left: 1.5em;
     --nested-list-margin: 0.05em 0;
-    
+
     /* ----- Code Blocks ----- */
     --code-font-size: calc(0.9em * var(--font-scale));
     --code-background: rgba(255, 255, 255, 0.08);
     --code-color: #f8f8f2;
     --code-padding: 0.2em 0.4em;
     --code-border-radius: 3px;
-    
+
     /* ----- Pre (Code Blocks) ----- */
     --pre-font-size: calc(0.5em * var(--font-scale));
     --pre-background: rgba(255, 255, 255, 0.05);
@@ -46,12 +46,12 @@
     --pre-padding: 0.6em 0.8em;
     --pre-border-radius: 4px;
     --pre-margin: 0.3em 0;
-    
+
     /* ----- Images ----- */
     --image-max-width: 100%;
     --image-max-height: 100%;
     --image-margin: 0.3em auto;
-    
+
     /* ----- Blockquotes ----- */
     --blockquote-font-size: calc(1em * var(--font-scale));
     --blockquote-color: #aaa;
@@ -59,18 +59,18 @@
     --blockquote-border-width: 4px;
     --blockquote-padding: 0.3em 1em;
     --blockquote-margin: 0.3em 0;
-    
+
     /* ----- Tables ----- */
     --table-font-size: calc(0.85em * var(--font-scale));
     --table-border-color: #444;
     --table-cell-padding: 0.3em 0.6em;
-    
+
     /* ----- Columns ----- */
     --columns-gap: calc(2rem * var(--font-scale));
     --column-padding: 0 8px 0 4px;
     --column-scrollbar-width: 4px;
     --columns-margin: 0.3rem 0;
-    
+
     /* ----- Footer ----- */
     --footer-base-font-size: 2em;
     --footer-font-size: calc(var(--footer-base-font-size) * var(--font-scale));
@@ -84,14 +84,16 @@
     --footer-max-width: 45vw;
 }
 
-/* ===== TOOLBAR ===== */
+/* ===== TOOLBAR - CENTERED ===== */
 #toolbar {
     position: fixed;
     top: 12px;
-    left: 12px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10000;
     display: flex;
     gap: 4px;
+    align-items: center;
 }
 
 #toolbar button,
@@ -100,7 +102,7 @@
     padding: 0 10px;
     border: 1px solid #555;
     border-radius: 4px;
-    background: rgba(30,30,30,.85);
+    background: rgba(30, 30, 30, .85);
     color: #ddd;
     font-size: 14px;
     cursor: pointer;
@@ -108,7 +110,7 @@
 
 #toolbar button:hover,
 #searchBtn:hover {
-    background: rgba(50,50,50,.95);
+    background: rgba(50, 50, 50, .95);
     border-color: #888;
     color: white;
 }
@@ -123,21 +125,87 @@
     outline: none;
 }
 
-#searchBtn {
-    position: fixed;
-    top: 12px;
-    right: 12px;
-    z-index: 10000;
-}
-
 /* Keep Reveal search UI below the fixed search button */
 .reveal .searchbox {
+    position: fixed !important;
     top: 56px !important;
-    right: 12px !important;
+
+    left: calc(50% + 195px) !important;
+    right: auto !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 400px;
+    max-width: 80vw;
 }
 
 .fullscreen-mode #toolbar button:not(#fullscreenBtn) {
     display: none;
+}
+
+/* ===== TOOLBAR: CUSTOM CONTROLS ===== */
+#toolbar #customcontrols {
+    position: static;
+    display: flex !important;
+    align-items: center;
+    width: auto !important;
+}
+
+#toolbar #customcontrols ul {
+    position: static !important;
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+#toolbar #customcontrols li {
+    display: flex;
+}
+
+#toolbar #customcontrols button {
+    margin: 0;
+}
+
+/* ===== TOOLBAR: SLIDE MENU BUTTON (overriding plugin defaults) ===== */
+#toolbar .slide-menu-button {
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+#toolbar .slide-menu-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    padding: 0 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background: rgba(30, 30, 30, .85);
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#toolbar .slide-menu-button a:hover {
+    background: rgba(50, 50, 50, .95);
+    border-color: #888;
+    color: white;
+}
+
+#toolbar .slide-menu-button svg {
+    width: 14px;
+    height: 14px;
+    display: block;
 }
 
 /* ===== HEADINGS ===== */
@@ -427,7 +495,7 @@ img.large {
         gap: 1.5rem;
         margin: 0.3rem 0;
     }
-    
+
     .columns-container .col {
         flex: 1 1 auto;
         width: 100%;
@@ -436,7 +504,7 @@ img.large {
         display: block;
         padding: 0 8px;
     }
-    
+
     .columns-container .col img {
         max-height: 30vh;
     }
@@ -534,6 +602,41 @@ body.printing #fixed-footer {
     .print-slide-footer a {
         color: inherit;
         text-decoration: underline;
+    }
+
+    /* === HIDE TOOLBAR AND CHALKBOARD ELEMENTS IN PRINT === */
+    #toolbar,
+    #searchBtn,
+    #menuBtn,
+    .slide-menu-button,
+    #customcontrols,
+    #chalkboard,
+    #notescanvas,
+    .slide-menu-wrapper,
+    .slide-menu-overlay,
+    .controls,
+    .progress {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+    }
+
+    .reveal .overlay {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    #toolbar button,
+    #toolbar div,
+    #toolbar * {
+        display: none !important;
+        visibility: hidden !important;
     }
 }
 
