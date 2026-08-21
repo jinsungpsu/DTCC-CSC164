@@ -137,7 +137,8 @@ Common situations where communication matters:
 
 ---
 
-# What about generative AI (ChatGPT, Gemini, Meta AI, etc.)
+# What about generative AI
+## (ChatGPT, Gemini, Meta AI, etc.)
 
 <!-- column -->
 - So what do you do with this technology?
@@ -146,7 +147,21 @@ Common situations where communication matters:
 
 <!-- column -->
 ![AI Decorative Image](images/ai.jpg)
+---
 
+# Closed Resource Exams
+In this course, there will be closed resource exams during class
+---
+
+# AI Effect on Exams
+> Students who use AI score great on homework, but bad on tests: large-scale new study
+- https://nypost.com/2026/08/19/world-news/students-who-use-ai-score-great-on-homework-but-bad-on-tests-study/
+- https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6868618
+
+---
+# AI Use Study Summary
+
+![Graphs showing effect of using AI for homework.  Shows Higher weekly use for homework results in correlation to lower exam scores.](images/ai-use-effects-study.png)
 ---
 
 # Academic Integrity
