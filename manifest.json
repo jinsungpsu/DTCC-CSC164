@@ -3,6 +3,7 @@
         "code": "CSC164",
         "name": "Computer Science II",
         "institution": "Delaware Technical Community College",
+        "homeTitle": "",
         "message": "These slides are currently still being updated, so they may have some inaccuracies or missing images."
     },
     "modules": [
@@ -144,7 +145,7 @@
         },
         {
             "folder": "module11",
-            "title": "MoFile Input/Output and Exceptions",
+            "title": "Input/Output and Exceptions",
             "lectures": [
                 {
                     "file": "01_cs2_fileio.md",
@@ -154,7 +155,7 @@
         },
         {
             "folder": "module12",
-            "title": "MoFile Input/Output and Exceptions",
+            "title": "Exam Review",
             "lectures": [
                 {
                     "file": "01_cs2_exam1_review.md",
