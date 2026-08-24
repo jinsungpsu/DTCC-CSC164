@@ -15,7 +15,7 @@ Slides are provided as interactive Reveal.js presentations and are organized by 
 Start here:
 
 ```text
-https://jinsungpsu.github.io/DTCC-CSC164-Slides/
+https://jinsungpsu.github.io/DTCC-CSC164/
 ```
 
 From the home page, select the lecture you would like to view.
