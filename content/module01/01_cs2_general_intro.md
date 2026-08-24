@@ -23,7 +23,7 @@ Delaware Technical Community College
 
 <!-- column -->
 ![Jin An Family Cartoon Image](images/family-cartoon.png)
-![Tennis Image](images/tennis.png)
+![Tennis Image](images/tennis-cartoon1.png)
 
 ---
 
