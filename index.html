@@ -43,16 +43,17 @@
     <div class="container">
         <span class="spinner">📚</span>
         <h1>Loading Lectures...</h1>
-        <p>Redirecting to the lecture framework...</p>
+        <p>Redirecting to the course catalog...</p>
     </div>
 
     <script>
-        // Course configuration - this is the only course-specific part
+        // Course configuration
         const FRAMEWORK_BASE = 'https://jinsungpsu.github.io/DTCC-Lectures-RevealJS-Framework/';
         const COURSE_URL = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
 
-        // Redirect to the framework with the course URL as a parameter
-        const frameworkUrl = new URL(FRAMEWORK_BASE + 'slide.html');
+        // Redirect to the framework's index.html (which shows the course catalog)
+        // instead of slide.html
+        const frameworkUrl = new URL(FRAMEWORK_BASE + 'index.html');
         frameworkUrl.searchParams.set('course', COURSE_URL);
         
         // Redirect after a brief delay
