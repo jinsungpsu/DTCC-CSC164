@@ -44,19 +44,17 @@ S                Presenter View (Speaker Notes)
 The toolbar appears at the top of the presentation.
 
 ```text
-↩  Return to lecture list
-
-◀  Previous slide
-
-▶  Next slide
-
-🔍 Search slides
-
-⛶ Enter Fullscreen
-
-✕ Exit Fullscreen
-
-🖨 Print / Save as PDF
+☰ All           Return to lecture list
+◀ Prev          Previous lecture
+Next ▶          Next lecture
+☰ All           Table of Contents (slides)
+◀ Prev          Previous slide
+Next ▶          Next slide
+🔍              Search slides
+✏️              Toggle Notes Canvas
+🖨              Open Print Version (2 slides per page with notes)
+⛶              Enter Fullscreen
+✕               Exit Fullscreen
 ```
 
 ---
@@ -146,9 +144,25 @@ Navigation options:
 
 ---
 
-## Printing
+## Printing / Saving as PDF
 
-Certain lectures may be printed or saved as PDF using the toolbar print button.
+To print or save a lecture as PDF:
+
+1. Open the lecture you want to print
+2. Click the print button in the toolbar:
+
+```text
+🖨
+```
+
+3. This opens the print version in a new tab with:
+   - 2 slides per page
+   - Notes section below each slide
+   - Ruled paper background for notes
+
+4. Use your browser's print dialog to:
+   - Print the handout
+   - Save as PDF (select "Save as PDF" in the print dialog)
 
 Printing is intended primarily for note-taking and offline review.
 
@@ -236,6 +250,7 @@ The site is built using:
 - Markdown
 - Reveal.js
 - GitHub Pages
+- Centralized Lecture Framework
 
 Lecture content is maintained in Markdown and rendered as interactive presentations.
 
@@ -249,7 +264,7 @@ This section covers how to create and format lecture slides using Markdown.
 
 Each slide is separated by:
 
-```markdown
+```text
 ---
 ```
 
@@ -306,6 +321,22 @@ Column two content.
 Column three content.
 ```
 
+### Returning to Full Width
+
+Use `<!-- endcolumns -->` to return to full-width content after a column layout:
+
+```markdown
+<!-- column -->
+Left column content.
+
+<!-- column -->
+Right column content.
+
+<!-- endcolumns -->
+
+This text will span the full width of the slide.
+```
+
 ### Features
 
 - **Auto-detects** number of columns (2, 3, 4+)
@@ -313,16 +344,20 @@ Column three content.
 - **Images** automatically scale to fit columns
 - **Lists** and **code blocks** work inside columns
 - **Responsive** and stacks vertically on mobile
+- **Endcolumns** allows return to full-width layout
 
 ### Images in Columns
 
 ```markdown
 <!-- column -->
-images/diagram.jpg
+![Diagram](images/diagram.jpg)
 
 <!-- column -->
 - List item 1
 - List item 2
+
+<!-- endcolumns -->
+Full-width conclusion or summary text.
 ```
 
 ---
@@ -368,15 +403,15 @@ images/oop/inheritance-diagram.png
 Reference in Markdown:
 
 ```markdown
-images/oop/inheritance-diagram.png
+![Inheritance Diagram](images/oop/inheritance-diagram.png)
 ```
 
 ### Image Size Helpers
 
 ```markdown
-images/small.png{.small}
-!Medium Image{.medium}
-images/large.png{.large}
+![Small Image](images/small.png){.small}
+![Medium Image](images/medium.png){.medium}
+![Large Image](images/large.png){.large}
 ```
 
 | Class | Size |
@@ -454,7 +489,7 @@ The entire presentation can be scaled using the `--font-scale` variable in `styl
 - Polymorphism
 - Extends existing class
 
-images/inheritance.png
+![Inheritance](images/inheritance.png)
 
 <!-- column -->
 **Composition**
@@ -463,7 +498,11 @@ images/inheritance.png
 - Promotes encapsulation
 - Uses object references
 
-images/composition.png
+![Composition](images/composition.png)
+
+<!-- endcolumns -->
+
+**Key Takeaway:** Both have their place. Use inheritance for "is-a" relationships and composition for "has-a" relationships.
 
 <!-- footer -->
 slides/05_inheritance.md | CSC164 | Spring 2026
@@ -484,45 +523,20 @@ The information below is primarily for instructors and future maintainers.
 ## Repository Structure
 
 ```text
-DTCC-CSC164-Slides/
-│
-├── index.html
-├── slide.html
-├── README.md
-│
-├── styles/
-│   └── slides.css
-│
-├── module01/
-│   ├── 01_course_review.md
-│   └── images/
-│
-├── module02/
-│   ├── 01_classes_objects.md
-│   └── images/
-│
-├── module03/
-│   ├── 01_inheritance.md
-│   └── images/
-│
-├── module04/
-│   ├── 01_polymorphism.md
-│   └── images/
-│
-├── module05/
-│   ├── 01_abstract_classes.md
-│   └── images/
-│
-├── module06/
-│   ├── 01_interfaces.md
-│   └── images/
-│
-├── module07/
-│   ├── 01_gui_intro.md
-│   └── images/
-│
-└── images/
-    └── (shared images)
+DTCC-CSC164/
+├── index.html              # Redirects to framework catalog
+├── manifest.json           # Generated course metadata
+└── content/
+    ├── module00/           # Course info (not displayed as a module)
+    │   └── 00_course_info.md
+    ├── module01/
+    │   ├── 00_module_overview.md
+    │   ├── 01_topic.md
+    │   └── images/
+    ├── module02/
+    │   └── ...
+    └── module12/
+        └── ...
 ```
 
 ---
@@ -531,28 +545,28 @@ DTCC-CSC164-Slides/
 
 ### Step 1
 
-Create a Markdown file:
+Create a Markdown file in the appropriate module folder:
 
 ```text
-module03/01_inheritance.md
+content/module03/01_inheritance.md
 ```
 
 ### Step 2
 
 Add slides separated by:
 
-```markdown
+```text
 ---
 ```
 
 Example:
 
-````markdown
+```text
 # Inheritance
 
 ---
 
-# Benefits of Inheritance
+## Benefits of Inheritance
 
 - Reuse code
 - Extend functionality
@@ -563,10 +577,60 @@ Module 3 | CSC164
 
 ---
 
-# Example
+## Example
 
-```java
-public class Student extends Person
-{
-}
+[code block here]
 ```
+
+### Step 3
+
+Regenerate the manifest:
+
+```bash
+python generate_manifest.py
+```
+
+### Step 4
+
+Commit and push changes:
+
+```bash
+git add .
+git commit -m "Add inheritance lecture"
+git push origin main
+```
+
+---
+
+## Module Organization
+
+| Module | Topic |
+|--------|-------|
+| module00 | Course Information (not displayed) |
+| module01 | Introduction to the Course and OOP |
+| module02 | Introduction to Java |
+| module03 | Java Arrays and Loops |
+| module04 | Methods |
+| module05 | Object Oriented Programming |
+| module06 | Inheritance |
+| module07 | Polymorphism |
+| module08 | Trends in Computing |
+| module09 | Graphical User Interfaces (GUIs) |
+| module10 | Event Driven Programming |
+| module11 | Input/Output and Exceptions |
+| module12 | Exam Review |
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Acknowledgments
+
+- [Reveal.js](https://revealjs.com/) - Presentation framework
+- [marked.js](https://marked.js.org/) - Markdown parser
+- [GitHub Pages](https://pages.github.com/) - Hosting
+- [DTCC Lectures RevealJS Framework](https://github.com/jinsungpsu/DTCC-Lectures-RevealJS-Framework) - Centralized framework
