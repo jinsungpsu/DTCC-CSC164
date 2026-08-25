@@ -172,11 +172,11 @@ A program written in a high-level language is called source code.
 - Bytecode runs on any computer with a Java Virtual Machine (JVM).
 - JVM interprets Java bytecode.
 
+![JVM architecture diagram](images/jvm-overview.png)
+
 ---
 
-# Java Virtual Machine (JVM)
-
-![JVM architecture diagram](images/jvm-overview.png)
+# (Optional) Similar to Emulators
 
 ---
 
