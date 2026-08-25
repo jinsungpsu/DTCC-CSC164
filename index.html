@@ -1,10 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh"
-          content="0; url=framework/index.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Course Lectures</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+        .spinner {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 20px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        p {
+            color: #888;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <span class="spinner">📚</span>
+        <h1>Loading Lectures...</h1>
+        <p>Redirecting to the lecture framework...</p>
+    </div>
+
+    <script>
+        // Course configuration - this is the only course-specific part
+        const FRAMEWORK_BASE = 'https://jinsungpsu.github.io/DTCC-Lectures-RevealJS-Framework/';
+        const COURSE_URL = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+
+        // Redirect to the framework with the course URL as a parameter
+        const frameworkUrl = new URL(FRAMEWORK_BASE + 'slide.html');
+        frameworkUrl.searchParams.set('course', COURSE_URL);
+        
+        // Redirect after a brief delay
+        setTimeout(() => {
+            window.location.href = frameworkUrl.toString();
+        }, 800);
+    </script>
 </body>
 </html>
