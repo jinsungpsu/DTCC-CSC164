@@ -1,7 +1,7 @@
 /* ===== GLOBAL VARIABLES ===== */
 :root {
     /* ----- MASTER FONT SCALE ----- */
-    --font-scale: 1.5;
+    --font-scale: 1.2;
 
     /* ----- SLIDE PADDING (fluid) ----- */
     --slide-padding-x: clamp(1rem, 3vw, 3rem);
