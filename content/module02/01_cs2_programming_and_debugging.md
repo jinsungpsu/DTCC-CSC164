@@ -248,7 +248,9 @@ System.out.print((double)smallNum / 2);
 ---
 
 # Analogy
+
 <!-- column -->
+
 - Overflow *can* occur when converting from a bigger type to a smaller type - so it must be done explicitly.
 ```java
 double bigNumber = 1234.5678;
@@ -260,7 +262,9 @@ int smallNumber = bigNumber;
 // this is an error
 ```
 <!-- column -->
+
 ![Overflow illustration pouring large amount of water from a 5 gallon bucket into small 8 oz cup and water overflowing](images/overflow.png)
+
 ---
 
 # String concatenation for output
