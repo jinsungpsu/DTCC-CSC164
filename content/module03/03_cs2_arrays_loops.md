@@ -291,9 +291,16 @@ int[][] numsArrayOf2DArrays2 = nums[1];
 
 # Common way to conceptualize/visualize
 
-[Multidimensional array diagram]
+<!-- column -->
 
-![multidimensional-array-diagram](images/multidimensional-array-diagram.png)
+## 2D Array = table
+![Visualizing a 2D array as a table of rows and columns example image](images/array-visualization-2d-table.png)
+
+<!-- column -->
+![Visualizing a 3D array as a cube](images/array-visualization-3d-cube.png)
+
+## 3D Array = cube
+
 
 <!-- footer -->
 
