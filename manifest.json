@@ -20,8 +20,16 @@
                     "title": "Computers and Programs"
                 },
                 {
-                    "file": "03_cs2_transition_to_java.md",
+                    "file": "03_cs2_intro_to_oop.md",
+                    "title": "Objects and Object Oriented Programming"
+                },
+                {
+                    "file": "04_cs2_transition_to_java.md",
                     "title": "Transition from C++ to Java"
+                },
+                {
+                    "file": "05_cs2_java_data_types_and_operations.md",
+                    "title": "Java Data Types and Operations"
                 }
             ]
         },
