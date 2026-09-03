@@ -1,6 +1,10 @@
+# Java Data Types and Operations
+
+---
+
 <div style="font-size:0.6em;">
 
-# Java Data Types and Operations
+# Java Data Types
 
 | Type | Used For | Example |
 |--------|----------|---------|
