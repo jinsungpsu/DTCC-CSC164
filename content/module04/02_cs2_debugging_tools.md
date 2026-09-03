@@ -24,7 +24,7 @@ Break points, Step Over
 
 <!-- column -->
 
-![Screenshot showing intellij breakpoint in code](images/intellij-debug-breakpoint-1.png)
+![Screenshot showing intellij breakpoint in code](images/intellij-debug-breakpoint.png)
 
 <!-- column -->
 
