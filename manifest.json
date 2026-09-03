@@ -84,6 +84,10 @@
                 {
                     "file": "02_cs2_debugging_tools.md",
                     "title": "Debugging I"
+                },
+                {
+                    "file": "03_cs2_stepin_out_callstack.md",
+                    "title": "Debugging II"
                 }
             ]
         },

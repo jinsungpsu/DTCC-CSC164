@@ -232,8 +232,12 @@ boolean answer =
 ---
 
 # Java Numeric Type Promotion & Demotion
-### Promotion ↑ (Automatic Promotion)
 
+<!-- column -->
+### Promotion ↑ 
+- Automatic Promotion
+
+<!-- column -->
 double
 
 ⬆
@@ -259,7 +263,11 @@ byte
 ---
 # Java Numeric Type Promotion & Demotion
 
-### Demotion ↓ (Explicit Demotion)
+<!-- column -->
+### Demotion ↓ 
+- Explicit Demotion
+
+<!-- column -->
 double
 
 ⬇ cast

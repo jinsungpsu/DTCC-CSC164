@@ -4,23 +4,32 @@ Break points, Step Over
 
 ---
 
+
+# Debugging
+
+- Getting familiar with the debugging tools will be very helpful when using methods
+- Also, getting familiar with the call stack will be vitally important in order to fully understand how methods work
+
+--- 
+
 # Have you ever done this?
 
 - There’s a better way!!
 
-![debugging-example](images/debugging-example.png)
+![Screenshot showing diagnostic output to console](images/intellij-diagnostic-output.png)
 
 ---
 
-# Breakpoints
+# Breakpoints and Debug Mode
 
-![breakpoints](images/breakpoints.png)
+<!-- column -->
 
----
+![Screenshot showing intellij breakpoint in code](images/intellij-debug-breakpoint-1.png)
 
-# Debug Mode
+<!-- column -->
 
-![debug-mode](images/debug-mode.png)
+- Entering Debug Mode
+![IntelliJ Screenshot How to Start Debug Mode](images/intellij-debug-button.png)
 
 ---
 
@@ -38,90 +47,29 @@ Break points, Step Over
 - Displayed in the “Threads & Variables” section on the bottom
 - Console output is in a separate tab
 
-![threads-and-variables](images/threads-and-variables.png)
+<!-- column -->
+
+![Screenshot of IntelliJ showing inline variable values](images/intellij-debug-inline-var-values.png)
+
+<!-- column -->
+
+![threads-and-variables](images/intellij-debug-callstack.png)
+
 
 ---
 
 # Debug Mode Controls
 
-![debug-controls](images/debug-controls.png)
+![debug-controls](images/intellij-debug-controls.png)
 
-- Step over
-- Executes current instruction and stops before executing the next instruction
-
----
-
-# Debug Mode Controls
-
-![debug-controls](images/debug-controls.png)
-
-- Re-run
 - Re-compile and start debug process again
-
----
-
-# Debug Mode Controls
-
-![debug-controls](images/debug-controls.png)
-
+- Stop
 - Resume
-- Continue program until it encounters next breakpoint
+    - Continue program until it encounters next breakpoint
+- Pause
+- Step over
+    - Executes current instruction and stops before executing the next instruction
+- Step in (more on this later)
+- Step out (more on this later)
 
 ---
-
-# Debugging II
-
-Step In/Out, Stack Frames
-
----
-
-# Methods
-
-- Stepping in and out in debug mode has everything to do with the call stack
-- The call stack organizes each method running in the program
-
----
-
-# The Call Stack
-
-[Diagram explaining the call stack and function calls]
-
-![call-stack-diagram](images/call-stack-diagram.png)
-
----
-
-# Example
-
-![debugging-example-1](images/debugging-example-1.png)
-
-![debugging-example-2](images/debugging-example-2.png)
-
----
-
-# Stack Frames
-
-![stack-frame-1](images/stack-frame-1.png)
-
-![stack-frame-2](images/stack-frame-2.png)
-
-![stack-frame-3](images/stack-frame-3.png)
-
----
-
-# Debug Mode Controls
-
-![debug-controls](images/debug-controls.png)
-
-- Step into
-- Will go into any methods in the next instruction
-- If there are multiple methods, debugger will prompt and ask which method to go into
-- Behaves the same as step over if there are no methods
-
----
-
-# Debug Mode Controls
-
-![debug-controls](images/debug-controls.png)
-
-- Step out
-- Will finish running current method and step out of current method

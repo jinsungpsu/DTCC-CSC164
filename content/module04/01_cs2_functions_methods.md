@@ -167,17 +167,27 @@ char charAt(String string, int index) {...}
 - What are the parameters?
 
 ---
+# How to Deal with Scanner/Keyboard
 
-# How to deal with Scanner/keyboard
-
-- Unlike C++, in java, the Scanner used for keyboard input has the same scope as any other variable - it will only work in the method where it is declared.
-- What to do if you need to use the Scanner inside other methods?
+- A `Scanner` object follows the same scope rules as any other variable in Java.
+- If you declare a Scanner inside a method, it can only be used within that method.
+- What should you do if multiple methods need keyboard input?
 
 ---
 
-- You could declare another Scanner inside the method (not a great idea)
-- You could pass the Scanner in as a parameter (better way of handling it)
-- You could declare the Scanner as a static variable available to the whole class - kind of like a global variable in java (more convenient, but kind of a hack)
+# Scanner/Keyboard Options
+
+- Create another Scanner inside the method
+  - Generally not recommended when reading from `System.in`
+  - Multiple Scanners reading from the same input stream can cause unexpected behavior
+
+- Pass the Scanner as a parameter
+  - A clean and flexible approach
+  - Makes it clear where the input is coming from
+
+- Declare the Scanner as a static class variable
+  - Allows all static methods in the class to access it
+  - Common in small programs and classroom examples
 
 ---
 
@@ -185,15 +195,20 @@ char charAt(String string, int index) {...}
 
 ```java
 public static void main(String[] args) {
-   Scanner keyboard = new Scanner(System.in);
-   int num = keyboard.nextInt();
-   someMethod(keyboard);
+    Scanner keyboard = new Scanner(System.in);
+
+    int firstNum = keyboard.nextInt();
+
+    someMethod(keyboard);
 }
 
 static void someMethod(Scanner keyboard) {
-   double num = keyboard.nextDouble();
+    double secondNum = keyboard.nextDouble();
 }
 ```
+
+- The same Scanner object is shared between methods.
+- Only one Scanner is connected to `System.in`.
 
 ---
 
@@ -201,17 +216,57 @@ static void someMethod(Scanner keyboard) {
 
 ```java
 public class Main {
-   static Scanner keyboard = new Scanner(System.in);
 
-   public static void main(String[] args) {
-       int num = keyboard.nextInt();
-   }
+    static Scanner keyboard = new Scanner(System.in);
 
-   static void someMethod() {
-       double num = keyboard.nextDouble();
-   }
+    public static void main(String[] args) {
+        int num = keyboard.nextInt();
+    }
+
+    static void someMethod() {
+        double num = keyboard.nextDouble();
+    }
 }
 ```
+
+- The Scanner is declared once for the entire class.
+- Any static method can use the Scanner.
+- This is convenient for small programs.
+
+---
+
+# Don't Close the Scanner Too Early
+
+```java
+Scanner keyboard = new Scanner(System.in);
+
+// Read input here
+
+keyboard.close();
+```
+
+- Closing the Scanner also closes `System.in`.
+- Once `System.in` is closed, keyboard input can no longer be read.
+- For simple programs, close the Scanner at the very end of the program.
+
+---
+
+# Course Recommendation
+
+For the rest of this course and your assignments, use a single static Scanner:
+
+```java
+static Scanner keyboard = new Scanner(System.in);
+```
+
+Why?
+
+- It keeps our examples shorter and easier to read.
+- Any method in the class can access the Scanner.
+- We only create one Scanner attached to `System.in`.
+- It avoids having to pass the Scanner to every method.
+
+**Note:** In larger software projects, programmers often pass objects as parameters instead of using static variables. For this course, however, a single static Scanner is the simplest and most convenient approach.
 
 ---
 
@@ -322,16 +377,14 @@ When it’s called, it’s not associated with some other variable - as we saw w
 
 ```java
 class Main {
-public static void main(String[] args) {
-   Main.someMethod();
-}
-static void someMethod() {
-   System.out.println("Hello World!");
-}
+   public static void main(String[] args) {
+      Main.someMethod();
+   }
+   static void someMethod() {
+      System.out.println("Hello World!");
+   }
 }
 ```
-
----
 
 - Can call static methods by using the class name
 
@@ -371,36 +424,6 @@ int numInWord = Integer.parseInt(word);
 
 ---
 
-# Output formatting
-
-- print
-- println
-- printf
-
----
-
-# Formatting Decimal Numbers
-
-```java
-// declaring double
-double a = 3.14159265359;
-// Printing Double Value with
-// different Formatting
-System.out.printf("%f\\n", a);
-System.out.printf("%5.3f\\n", a);
-System.out.printf("%5.2f\\n", a);
-
-3.141593
-3.142
- 3.14
-```
-
-<!-- footer -->
-
-https://www.geeksforgeeks.org/formatted-output-in-java/
-
----
-
 # Getting a char input
 
 There’s no nextChar method for the Scanner.
@@ -421,8 +444,3 @@ char letter = word.charAt(0);
 ```
 
 ---
-
-# Debugging
-
-- Getting familiar with the debugging tools will be very helpful when using methods
-- Also, getting familiar with the call stack will be vitally important in order to fully understand how methods work
