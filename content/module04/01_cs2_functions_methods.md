@@ -1,3 +1,30 @@
+<!--
+TODO: 
+- Subroutine example
+-- Get ready for the day/morning routine
+--- Brush teeth
+--- Breakfast
+----- Subroutines can have subroutines
+----- Cook, eat, etc.
+
+- elaborate on the black box thinking slides
+- think of physical box
+-- it has slots for input - params
+-- output - return type
+-- label (name) /documentation
+- Overloaded method
+-- boxes with same label, but differing interface (slots for input/output)
+
+- Inside of black box, it receives the data from those slots without knowing where anything comes form
+-- you know your job, just do it and send the data necessary back out (if required)
+
+- add some images/explanation about cars
+-- especially during blackbox rules slides
+-- interface = pedal
+-- abstradction - don't need to know how it works as long as it does what it's supposed to
+
+-->
+
 # Methods
 
 ---
