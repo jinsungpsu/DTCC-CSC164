@@ -81,6 +81,12 @@ To use a black box, you shouldn't need to know anything about its implementation
 
 ---
 
+# Black Box Thinking
+
+![Comic strip showing a man inside a black box receiving data and returning data to the outside world](images/blackbox-comic.png)
+
+---
+
 # Black Box Rule #3
 
 The implementer of a black box should not need to know anything about the larger systems in which the box will be used.
