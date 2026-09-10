@@ -61,7 +61,11 @@ https://math.hws.edu/javanotes/c4/s1.html
 
 # “Black Box”
 
+<!-- column --> 
+
 A subroutine is sometimes said to be a "black box" because you can't see what's "inside" it (or, to be more precise, you usually don't want to see inside it, because then you would have to deal with all the complexity that the subroutine is meant to hide). Of course, a black box that has no way of interacting with the rest of the world would be pretty useless.
+
+<!-- column --> 
 
 ![Physical Black Box with 2 inputs and 1 output image](images/blackbox.png)
 
