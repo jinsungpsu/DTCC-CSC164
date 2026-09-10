@@ -129,6 +129,8 @@ void printMenu() {...}
 - A feature in Java that allows multiple methods in the same class to have the same name but different parameters.
 - Methods are differentiated based on number, type, or order of parameters.
 
+<!-- column -->
+
 ```java
 // Method with
 // two integer parameters
@@ -148,6 +150,10 @@ int add(int a, int b, int c) {
     return a + b + c;
 }
 ```
+
+<!-- column -->
+
+![Black box showing various number of slots to visualize different parameters for overloaded methods](images/blackbox-overloaded.png)
 
 ---
 
