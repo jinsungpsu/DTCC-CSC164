@@ -53,7 +53,7 @@ Break points, Step Over
 
 <!-- column -->
 
-![threads-and-variables](images/intellij-debug-callstack.png)
+![threads-and-variables](images/intellij-debug-main.png)
 
 
 ---
