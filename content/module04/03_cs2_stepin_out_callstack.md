@@ -67,13 +67,6 @@ Step In/Out, Stack Frames
 
 # Step Over/Into/Out
 
-<section>
-  <h2>YouTube Video Example</h2>
-  <iframe 
-    data-src="[https://www.youtube.com/embed/wo9vZccmqwc](https://www.youtube.com/watch?v=UPm5GsuhJgU)" 
-    width="720" 
-    height="480" 
-    frameborder="0" 
-    allowfullscreen>
-  </iframe>
-</section>
+[https://www.youtube.com/embed/wo9vZccmqwc](https://www.youtube.com/watch?v=UPm5GsuhJgU)
+
+![Super mario on top of a green pipe representing a function/method](images/mario-pipe.png)
