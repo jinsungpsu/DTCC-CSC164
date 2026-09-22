@@ -100,8 +100,48 @@
                     "title": "Objects and Classes"
                 },
                 {
-                    "file": "02_cs2_oop_02.md",
-                    "title": "OOP II"
+                    "file": "02_cs2_oop_constructors.md",
+                    "title": "Constructors"
+                },
+                {
+                    "file": "03_cs2_oop_visibility_modifiers.md",
+                    "title": "Visibility Modifiers"
+                },
+                {
+                    "file": "04_cs2_oop_setters_getters.md",
+                    "title": "Encapsulation"
+                },
+                {
+                    "file": "05_cs2_oop_arrays_objects.md",
+                    "title": "Arrays of Objects, OOP in Java, and Wrapper Classes"
+                },
+                {
+                    "file": "06_cs2_oop_composition.md",
+                    "title": "Objects Inside Other Objects"
+                },
+                {
+                    "file": "07_cs2_oop_in_java.md",
+                    "title": "Classes We've Already Used"
+                },
+                {
+                    "file": "08_cs2_oop_instance_static.md",
+                    "title": "Instance Variables"
+                },
+                {
+                    "file": "09_cs2_oop_this_keyword.md",
+                    "title": "Using this"
+                },
+                {
+                    "file": "10_cs2_oop_constructor_chaining.md",
+                    "title": "Constructor Chaining"
+                },
+                {
+                    "file": "11_cs2_oop_ref_params.md",
+                    "title": "Passing Objects as Parameters"
+                },
+                {
+                    "file": "12_cs2_oop_wrapper_classes.md",
+                    "title": "Wrapper Classes"
                 }
             ]
         },
