@@ -95,6 +95,53 @@ Operators like plus:
 
 ---
 
+# Java Side Note: Strings and Equality
+
+> Be careful when comparing Strings in Java.
+
+<!-- column -->
+```java
+String a = "hello";
+String b = "hello";
+String c = new String("hello");
+
+System.out.println(a == b);      // true
+System.out.println(a == c);      // false
+System.out.println(a.equals(c)); // true
+```
+
+<!-- column -->
+- `==` compares whether two variables refer to the **same object in memory**
+- `.equals()` compares the **contents** of the Strings
+- When checking if two Strings contain the same text, use `.equals()`
+
+---
+
+# How to Check If Two Strings Are "Equal"
+
+<!-- column -->
+Correct:
+
+```java
+if (username.equals("admin")) {
+    System.out.println("Welcome!");
+}
+```
+
+<!-- column -->
+Avoid:
+
+```java
+if (username == "admin") {
+    System.out.println("Welcome!");
+}
+```
+
+> **Rule of Thumb:** Use `==` for primitive values (`int`, `double`, `char`, `boolean`), and use `.equals()` when comparing `String` contents.
+
+---
+
+
 # Basic Control Structures
 
 - Control structures are always asking a question, which is evaluated as a boolean data type
