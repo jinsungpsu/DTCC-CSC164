@@ -1,4 +1,10 @@
 
+
+# Setters and Getters
+
+Since private fields cannot be accessed directly, we often provide special methods.
+---
+
 # Encapsulation
 
 Encapsulation means:
@@ -21,9 +27,7 @@ Instead, the class decides how access should occur.
 
 ---
 
-# Getters and Setters
-
-Since private fields cannot be accessed directly, we often provide special methods.
+# Setter and Getter Syntax
 
 <!-- column -->
 ### Getter

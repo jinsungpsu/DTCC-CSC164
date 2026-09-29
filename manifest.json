@@ -109,11 +109,11 @@
                 },
                 {
                     "file": "04_cs2_oop_setters_getters.md",
-                    "title": "Encapsulation"
+                    "title": "Setters and Getters"
                 },
                 {
                     "file": "05_cs2_oop_arrays_objects.md",
-                    "title": "Arrays of Objects, OOP in Java, and Wrapper Classes"
+                    "title": "Arrays of Objects"
                 },
                 {
                     "file": "06_cs2_oop_composition.md",

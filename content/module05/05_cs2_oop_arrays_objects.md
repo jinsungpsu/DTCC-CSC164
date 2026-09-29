@@ -1,7 +1,3 @@
-# Arrays of Objects, OOP in Java, and Wrapper Classes
-
----
-
 # Arrays of Objects
 
 **Definition:** An array of objects is a collection of references to objects of the same class.

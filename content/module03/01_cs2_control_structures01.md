@@ -95,7 +95,7 @@ Operators like plus:
 
 ---
 
-# Java Side Note: Strings and Equality
+# Java Side Note - Strings and Equality
 
 > Be careful when comparing Strings in Java.
 
@@ -136,6 +136,8 @@ if (username == "admin") {
     System.out.println("Welcome!");
 }
 ```
+
+<!-- endcolumns -->
 
 > **Rule of Thumb:** Use `==` for primitive values (`int`, `double`, `char`, `boolean`), and use `.equals()` when comparing `String` contents.
 
