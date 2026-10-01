@@ -117,15 +117,15 @@
                 },
                 {
                     "file": "06_cs2_oop_composition.md",
-                    "title": "Objects Inside Other Objects"
+                    "title": "Composition"
                 },
                 {
                     "file": "07_cs2_oop_in_java.md",
-                    "title": "Classes We've Already Used"
+                    "title": "Java Classes"
                 },
                 {
                     "file": "08_cs2_oop_instance_static.md",
-                    "title": "Instance Variables"
+                    "title": "Instance vs Static"
                 },
                 {
                     "file": "09_cs2_oop_this_keyword.md",

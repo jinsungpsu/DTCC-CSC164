@@ -1,3 +1,6 @@
+# Instance vs Static
+
+---
 
 # Instance Variables
 
