@@ -1,30 +1,117 @@
-# Inheritance & Polymorphism
+# Inheritance in Java
+
+## Overview
+- What inheritance is
+- Superclasses and subclasses
+- The "is-a" relationship
+- Why inheritance is useful
+- Using the `super` keyword
+- Constructor chaining
+- Method overriding
+- The `Object` class
+- Overriding `toString()`
+
+---
+
+# What Is Inheritance?
+
+Inheritance allows one class to build upon another class.
+
+Benefits:
+
+- Reuse existing code
+- Reduce duplication
+- Create organized class hierarchies
+- Extend existing functionality
+
+A subclass inherits members from a superclass.
 
 ---
 
 # Superclasses and Subclasses
 
-A **superclass** is a class that is inherited from by one or more subclasses.
+A **superclass** is a class that other classes inherit from.
 
-A **subclass** is a class that inherits from a superclass.
+A **subclass** is a class that inherits from another class.
+
+```java
+class Animal {
+    
+}
+
+class Cat extends Animal {
+    
+}
+```
+
+- `Animal` is the superclass
+- `Cat` is the subclass
 
 ---
 
 # Defining a Subclass
 
-- Add new properties
-- Add new methods
-- Override methods of the superclass
+Use the `extends` keyword.
 
 ```java
+class Animal {
+
+}
+
 class Cat extends Animal {
-    // ...
+
 }
 ```
 
+A subclass can:
+
+- Inherit data fields
+- Inherit methods
+- Add new data fields
+- Add new methods
+- Override inherited methods
+
 ---
 
-# Examples
+# Example: Inheriting Data
+
+```java
+class Animal {
+    protected int age;
+}
+
+class Cat extends Animal {
+    private String name;
+}
+```
+
+A `Cat` object contains:
+
+- `age` inherited from `Animal`
+- `name` declared in `Cat`
+
+Subclasses gain access to inherited members.
+
+---
+
+# Thinking in "Is-A" Relationships
+
+Inheritance models an **is-a** relationship.
+
+Examples:
+
+- A cat is an animal
+- A dog is an animal
+- A savings account is a bank account
+- A student employee is an employee
+
+If the relationship is not "is-a", inheritance may not be appropriate.
+
+---
+
+# Cat or Animal?
+
+Consider:
 
 ```java
 class Animal {
@@ -36,213 +123,486 @@ class Cat extends Animal {
 }
 ```
 
----
+Facts:
 
-# Cat or animal
+- A cat is an animal
+- Every cat has an age
+- Cats can add additional data
+- Not every animal is necessarily a cat
 
-- A cat is an animal.
-- All animals have an age.
-- Cats have names.
-- Animals do not have names.
-
----
-
-# Inheritance Chain
-
-- class Animal
-- class Mammal extends Animal
-- class Cat extends Mammal
+Inheritance is one-way.
 
 ---
 
-# … is a … relationship
+# Inheritance Chains
 
-- A mammal is an animal
-- A cat is a mammal
-
----
-
-# Keyword super
-
-The super keyword is used in Java to refer to the parent (superclass) of a subclass.
-
----
-
-# Access Parent Class Constructors
+Inheritance can span multiple levels.
 
 ```java
-class Parent {
-    Parent() {
-        System.out.println("Parent Constructor");
-    }
+class Animal {
+
 }
 
-class Child extends Parent {
-    Child() {
-        super();
-        System.out.println("Child Constructor");
+class Mammal extends Animal {
+
+}
+
+class Cat extends Mammal {
+
+}
+```
+
+`Cat` inherits from `Mammal`.
+
+`Mammal` inherits from `Animal`.
+
+---
+
+# Inheritance Chain Visualization
+
+```text
+Animal
+   ↑
+ Mammal
+   ↑
+   Cat
+```
+
+A `Cat` object inherits accessible members from:
+
+- Mammal
+- Animal
+
+Inheritance accumulates up the chain.
+
+---
+
+# Why Use Inheritance?
+
+Without inheritance:
+
+```java
+class Cat {
+    int age;
+}
+
+class Dog {
+    int age;
+}
+
+class Horse {
+    int age;
+}
+```
+
+The same code is repeated.
+
+Inheritance allows common functionality to be written once.
+
+---
+
+# Common Functionality
+
+```java
+class Animal {
+    protected int age;
+
+    public void eat() {
+        System.out.println("Eating...");
     }
 }
 ```
 
----
+```java
+class Cat extends Animal {
 
-# Call Superclass Methods
+}
+```
 
 ```java
+class Dog extends Animal {
+
+}
+```
+
+Both classes automatically inherit `age` and `eat()`.
+
+---
+
+# The `super` Keyword
+
+`super` refers to the superclass portion of the current object.
+
+Common uses:
+
+- Call a superclass constructor
+- Call a superclass method
+- Access a superclass field
+
+Examples:
+
+```java
+super();
 super.display();
+super.age;
 ```
 
 ---
 
-# Access Parent Class Variables
+# Calling a Superclass Constructor
 
 ```java
-System.out.println(super.x);
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor");
+    }
+}
+
+class Cat extends Animal {
+    Cat() {
+        super();
+        System.out.println("Cat constructor");
+    }
+}
+```
+
+`super()` calls the superclass constructor.
+
+---
+
+# Constructor Execution Order
+
+Suppose:
+
+```java
+Cat cat = new Cat();
+```
+
+Java executes:
+
+1. Animal constructor
+2. Cat constructor
+
+Superclass constructors always run first.
+
+This helps ensure inherited data is initialized properly.
+
+---
+
+# Implicit Constructor Chaining
+
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal");
+    }
+}
+
+class Cat extends Animal {
+    Cat() {
+        System.out.println("Cat");
+    }
+}
+```
+
+Output:
+
+```text
+Animal
+Cat
+```
+
+Even though `super()` is not written, Java inserts it automatically.
+
+---
+
+# Passing Data to a Superclass Constructor
+
+```java
+class Animal {
+    Animal(int age) {
+        this.age = age;
+    }
+
+    protected int age;
+}
+```
+
+```java
+class Cat extends Animal {
+    Cat(int age) {
+        super(age);
+    }
+}
+```
+
+Arguments can be passed to superclass constructors.
+
+---
+
+# Calling a Superclass Method
+
+```java
+class Animal {
+    public void speak() {
+        System.out.println("...");
+    }
+}
+```
+
+```java
+super.speak();
+```
+
+Useful when a subclass wants to reuse behavior already defined in the superclass.
+
+---
+
+# Accessing a Superclass Variable
+
+```java
+class Animal {
+    protected int age = 5;
+}
+```
+
+```java
+System.out.println(super.age);
+```
+
+`super` can access inherited fields when appropriate.
+
+---
+
+# Method Overriding
+
+A subclass can replace inherited behavior.
+
+```java
+class Animal {
+    public void speak() {
+        System.out.println("...");
+    }
+}
+```
+
+```java
+class Cat extends Animal {
+    @Override
+    public void speak() {
+        System.out.println("Meow");
+    }
+}
 ```
 
 ---
 
-# Constructors and Inheritance
+# Rules for Overriding
 
-- Constructors are still just constructors.
-- Used to initialize objects.
+When overriding:
 
----
+- Same method name
+- Same parameter list
+- Same return type (or compatible return type)
 
-# Constructor Chaining
+Example:
 
-- Each constructor call is implicitly or explicitly called up the inheritance chain.
+```java
+@Override
+public String toString() {
+    return "example";
+}
+```
 
----
-
-# Overriding
-
-- Subclasses override behavior defined in a superclass.
-- Methods have the same signature.
+The `@Override` annotation helps catch mistakes.
 
 ---
 
 # Overriding vs Overloading
 
-- Overriding methods has to do with inheritance.
-- Overloading methods has to do with method signatures.
+Overriding:
+
+```java
+class Cat extends Animal {
+    @Override
+    public void speak() {
+
+    }
+}
+```
+
+- Requires inheritance
+- Same signature
+
+Overloading:
+
+```java
+print();
+print(String message);
+```
+
+- Different parameter list
+- Inheritance not required
 
 ---
 
-# Object Class
+# The Object Class
 
-- The Object class is the root class of all Java classes.
-- Every class in Java implicitly extends Object.
+The `Object` class is the root of Java's class hierarchy.
+
+Every Java class ultimately extends:
+
+```java
+Object
+```
+
+Even if you never write:
+
+```java
+extends Object
+```
+
+it is still there.
 
 ---
 
-# toString()
+# Object Class Hierarchy Example
 
-- Returns a string representation of an object.
-- Commonly overridden.
+```text
+Object
+   ↑
+ Animal
+   ↑
+   Cat
+```
+
+Every `Cat` object is also:
+
+- a Cat
+- an Animal
+- an Object
 
 ---
 
-# Object class toString definition
+# Methods Inherited from Object
+
+Some commonly inherited methods include:
+
+```java
+toString()
+equals()
+hashCode()
+getClass()
+```
+
+Every Java object has access to these methods.
+
+---
+
+# What Is `toString()`?
+
+`toString()` returns a string representation of an object.
+
+Java automatically calls it in situations like:
+
+```java
+System.out.println(cat);
+```
+
+This makes `toString()` useful for debugging and displaying objects.
+
+---
+
+# Default `toString()` Behavior
+
+Suppose:
+
+```java
+Cat cat = new Cat();
+System.out.println(cat);
+```
+
+Output may look similar to:
+
+```text
+Cat@7adf9f5f
+```
+
+This default behavior comes from the Object class.
+
+---
+
+# Object Class `toString()`
+
+The Object class defines:
 
 ```java
 public String toString() {
-    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+    return getClass().getName()
+        + "@"
+        + Integer.toHexString(hashCode());
+}
+```
+
+Most classes benefit from replacing this with more meaningful output.
+
+---
+
+# Overriding `toString()`
+
+```java
+class Cat extends Animal {
+
+    private String name;
+
+    @Override
+    public String toString() {
+        return "Cat named " + name +
+               ", age " + age;
+    }
 }
 ```
 
 ---
 
-# Why Override toString()?
+# Improved Output
 
-- Makes debugging easier.
-- Provides meaningful object descriptions.
-- Enhances readability.
+Without overriding:
 
----
-
-# Cat class toString
-
-```java
-@Override
-public String toString() {
-    return "Cat named: " + name + ", age: " + age;
-}
+```text
+Cat@7adf9f5f
 ```
 
----
+With overriding:
 
-# Polymorphism
+```text
+Cat named Whiskers, age 3
+```
 
----
-
-# Poly, Morph
-
-- Many
-- Forms
+The object becomes much easier to understand.
 
 ---
 
-# Polymorphism
+# Why Override `toString()`?
 
-Polymorphism allows objects of different classes to be treated as objects of a common superclass.
+Benefits:
 
----
+- Easier debugging
+- More readable output
+- Better logging
+- Easier testing
 
-# Practically…
-
-A supertype reference variable can refer to ANY subclass object.
-
----
-
-# Generic Programming
-
-An Animal reference variable can be used for:
-- Cat objects
-- Animal objects
+Many classes override `toString()` for these reasons.
 
 ---
 
-# Object class…
+# Summary
 
-An Object reference variable can refer to ANY object.
-
----
-
-# instanceof Operator
-
-The `instanceof` operator checks whether an object is an instance of a specified type.
-
----
-
-# Why Learn OOP?
-
----
-
-# Use Existing Classes
-
-- OOP isn't just about writing classes.
-- It's about using powerful, reusable classes.
-- Real software is built from many interacting objects.
-
----
-
-# Using Existing Classes
-
-- Java gives us thousands of ready-made classes.
-- Example: ArrayList.
-
----
-
-# OOP Simplifies Complex Tasks
-
-- Objects bundle data and behavior.
-- We call simple methods; the object handles the details.
-
----
-
-# Abstraction
-
-- OOP hides complicated internal code.
-- We just use the public methods.
+- Inheritance allows classes to build upon other classes
+- Subclasses inherit from superclasses
+- Inheritance models an "is-a" relationship
+- `super` accesses superclass functionality
+- Constructors chain through the inheritance hierarchy
+- Methods can be overridden in subclasses
+- Every class ultimately extends `Object`
+- `toString()` is commonly overridden to provide useful output

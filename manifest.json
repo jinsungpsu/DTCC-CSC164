@@ -129,7 +129,7 @@
                 },
                 {
                     "file": "09_cs2_oop_this_keyword.md",
-                    "title": "Using this"
+                    "title": "The `this` Keyword"
                 },
                 {
                     "file": "10_cs2_oop_constructor_chaining.md",
@@ -151,7 +151,7 @@
             "lectures": [
                 {
                     "file": "01_cs2_inheritance.md",
-                    "title": "Inheritance & Polymorphism"
+                    "title": "Inheritance in Java"
                 }
             ]
         },
@@ -161,7 +161,7 @@
             "lectures": [
                 {
                     "file": "01_cs2_polymorphism.md",
-                    "title": "Inheritance & Polymorphism"
+                    "title": "Polymorphism in Java"
                 }
             ]
         },
