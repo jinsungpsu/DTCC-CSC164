@@ -53,5 +53,3 @@ A single program can contain:
 - Arrays
 - Objects
 - Objects inside objects
-
----

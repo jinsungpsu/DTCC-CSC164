@@ -85,5 +85,3 @@ https://math.hws.edu/javanotes/c1/s5.html
 - Identify objects and responsibilities.
 - Design interactions through message passing.
 - Reflects real-world modeling and improves clarity.
-
----

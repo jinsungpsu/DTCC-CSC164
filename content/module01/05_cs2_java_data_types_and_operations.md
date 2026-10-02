@@ -360,4 +360,3 @@ System.out.print("The sum is " + (1+1));
 // THEN gets converted to a string
 // before being added to the "The sum is " string
 ```
----

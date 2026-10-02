@@ -203,5 +203,3 @@ We need a text editor, compiler, and JVM to write, compile, and execute Java pro
 
 <!-- footer -->
 [History of Languages at cdslab.org](https://www.cdslab.org/python/notes/preliminary-foundations/programming-history/PLchart.png)
-
----

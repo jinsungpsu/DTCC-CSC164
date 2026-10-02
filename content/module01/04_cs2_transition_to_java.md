@@ -190,5 +190,3 @@ cout << "Hello World\n";
 ```java
 System.out.print("Hello World\n");
 ```
-
----

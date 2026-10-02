@@ -89,6 +89,3 @@ char letter = input.next().charAt(0);
 <!-- column -->
 ![Sample Error Image 2](images/error2.png)
 ![Sample Error Image 3](images/error3.png)
-
-
----

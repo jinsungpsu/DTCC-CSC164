@@ -300,5 +300,3 @@ System.out.printf("i my name is %s %s", firstName, lastName);
 System.out.printf("Hi my name is %s %s and my age is %d and my grade is %.2f", 
     firstName, lastName, age, grade);
 ```
-
----

@@ -151,5 +151,3 @@ What is printed?
 - C. null
 - D. Compilation Error
 > <p class="fragment"><strong>Answer:</strong> B. BMW</p>
-
----

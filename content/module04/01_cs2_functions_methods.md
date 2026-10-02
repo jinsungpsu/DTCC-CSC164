@@ -489,5 +489,3 @@ char letter = keyboard.next().charAt(0);
 String word = keyboard.next();
 char letter = word.charAt(0);
 ```
-
----

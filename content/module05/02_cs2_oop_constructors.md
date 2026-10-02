@@ -404,5 +404,3 @@ A constructor prepares an object for use immediately after it is created.
 ### Next Topic
 
 **Visibility Modifiers (`public`, `private`, `protected`)**
-
----

@@ -71,5 +71,3 @@ Break points, Step Over
     - Executes current instruction and stops before executing the next instruction
 - Step in (more on this later)
 - Step out (more on this later)
-
----

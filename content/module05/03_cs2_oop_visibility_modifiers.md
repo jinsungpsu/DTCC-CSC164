@@ -280,5 +280,3 @@ private
 - Methods are often `public`
 - `protected` is common with inheritance
 - `default` is used when access should stay within a package
-
----
