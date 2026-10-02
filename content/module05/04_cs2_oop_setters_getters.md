@@ -234,6 +234,193 @@ All changes must go through the class's methods.
 
 ---
 
+# Getter Naming Isn't Always get...
+
+The usual getter pattern is:
+
+```java
+private String name;
+
+public String getName()
+{
+    return name;
+}
+```
+
+However, boolean values often use different names.
+
+---
+
+# Boolean Values
+
+Examples:
+
+<!-- column -->
+
+```java
+private boolean active;
+
+public boolean isActive()
+{
+    return active;
+}
+```
+
+<!-- column -->
+
+```java
+private boolean enrolled;
+
+public boolean isEnrolled()
+{
+    return enrolled;
+}
+```
+
+<!-- endcolumns -->
+
+When a variable represents a true/false condition, getters often begin with:
+
+- `is`
+- `has`
+- Sometimes `can`
+
+These getter names read more naturally in code.
+
+---
+
+# Boolean Getters
+
+Consider this class:
+
+```java
+private boolean fullTime;
+
+public boolean isFullTime()
+{
+    return fullTime;
+}
+```
+<!-- column -->
+
+Using the getter:
+
+```java
+if (student.isFullTime())
+k{
+    System.out.println("Full-time student");
+}
+```
+
+<!-- column -->
+
+Or:
+
+```java
+private boolean honorsStudent;
+
+public boolean isHonorsStudent()
+{
+    return honorsStudent;
+}
+```
+
+---
+
+# Readability
+
+The method call reads almost like an English sentence:
+
+```java
+student.isHonorsStudent()
+```
+
+This is one reason Java programmers often prefer `is...` getters for boolean values.
+
+---
+
+# Another Common Pattern: has...
+
+Sometimes a boolean field represents whether an object possesses something.
+
+<!-- column -->
+
+Example:
+
+```java
+private boolean parkingPermit;
+k
+public boolean hasParkingPermit()
+{
+    return parkingPermit;
+}
+```
+
+<!-- column -->
+
+Usage:
+
+```java
+if (student.hasParkingPermit())
+{
+    System.out.println("Allowed to park");
+}
+```
+
+---
+
+# Readability Summary
+
+The getter does the same job as any other getter:
+
+- Reads private data
+- Returns a value
+- Provides controlled access
+
+The naming is different because it makes the code easier to read.
+
+---
+
+# Setters Still Follow the Normal Pattern
+
+Even when getters use `is` or `has`, setters usually follow the standard naming convention.
+
+Example:
+
+```java
+private boolean active;
+
+public boolean isActive()
+{
+    return active;
+}
+
+public void setActive(boolean active)
+{
+    this.active = active;
+}
+```
+---
+
+# Set Method Unchanged
+
+Notice:
+
+```java
+isActive()
+```
+
+and
+
+```java
+setActive(boolean active)
+```
+
+The getter changes, but the setter typically remains a `set...` method.
+
+---
+
+
 # Setters/Getters Summary
 
 Setters and getters are essential for **encapsulation** and **controlled access to private data**.
