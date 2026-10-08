@@ -10,149 +10,947 @@ This assessment MUST be completed using D2L on a lab computer during the schedul
 
 ---
 
-# Format
+## Topics Covered
 
-- Entirely in D2L
-- Multi-select
-- Multiple choice
-- True/false
-- Matching
-- Written Response (short answer)
-
----
-
-# OOP Concepts
-
-- What is OOP?
-- What is encapsulation? Abstraction?
+- OOP Fundamentals
 - Classes vs Objects
-- What is the difference between the two?
-- Reference types/classes vs primitive types
-- As simple as a name that starts with a upper or lower case letter!
-- For example - int is a primitive, String and Integer are classes/reference types
-- Naming conventions
+- Primitive vs Reference Types
+- Encapsulation
+- Constructors and Overloading
+- Setters and Getters
+- Static vs Instance Members
+- Reference Variables and null
+- Arrays of Objects
+- Reading and Tracing Code
 
 ---
 
-# Objects and Access
+# What Should You Expect?
 
-- Dot notation to access object instance data/methods
-- Private data and using setters and getters
-- why?
-- syntax of each
-- this keyword
+The exam focuses heavily on:
+
+- Understanding OOP terminology
+- Reading Java code
+- Determining whether code compiles
+- Determining what code outputs
+- Understanding objects and references
+- Writing simple methods
+- Writing constructors
+- Working with arrays of objects
+
+---
+
+# What is OOP?
+
+Object-Oriented Programming (OOP) organizes code into objects.
+
+Objects contain:
+
+- State (variables)
+- Behavior (methods)
+
+Example:
+
+```java
+Student student = new Student();
+
+student.study();
+student.takeExam();
+```
+
+Benefits:
+
+- Organization
+- Reusability
+- Easier maintenance
+- Better modeling of real-world concepts
+
+---
+
+# Class vs Object
+
+<!-- column -->
+
+## Class
+
+Blueprint
+
+Defines:
+
+- Variables
+- Methods
+- Constructors
+
+Example:
+
+```java
+class Student {
+
+}
+```
+
+<!-- column -->
+
+## Object
+
+An instance of a class
+
+Example:
+
+```java
+Student s1 = new Student();
+Student s2 = new Student();
+```
+
+Each object has its own data.
+
+---
+
+# Practice Check
+
+### Which is the class?
+
+```java
+Student s1 = new Student();
+```
+
+### Answer
+
+<div class="fragment">
+
+```java
+Student
+```
+
+The class acts as the blueprint.
+
+</div>
+
+---
+
+# Practice Check
+
+### Which is the object reference variable?
+
+```java
+Student s1 = new Student();
+```
+
+### Answer
+
+<div class="fragment">
+
+```java
+s1
+```
+
+The reference variable stores a reference to the object.
+
+</div>
+
+---
+
+# Primitive vs Reference Types
+
+<!-- column -->
+
+## Primitive Types
+
+Store actual values.
+
+Examples:
+
+```java
+int
+double
+char
+boolean
+```
+
+<!-- column -->
+
+## Reference Types
+
+Store references to objects.
+
+Examples:
+
+```java
+String
+Scanner
+Student
+Integer
+```
+
+<!-- footer -->
+Nearly every type that begins with a capital letter is a class/reference type.
+
+---
+
+# Reference Type or Primitive?
+
+### Determine whether each is primitive or reference.
+
+```text
+boolean
+String
+double
+Integer
+Scanner
+char
+```
+
+### Answer
+
+<div class="fragment">
+
+Primitive:
+
+```java
+boolean
+double
+char
+```
+
+Reference:
+
+```java
+String
+Integer
+Scanner
+```
+
+</div>
+
+---
+
+# Encapsulation
+
+Encapsulation means:
+
+- Keeping data and methods together
+- Restricting direct access to data
+
+Usually:
+
+```java
+private
+```
+
+variables
+
+and
+
+```java
+public
+```
+
+methods
+
+---
+
+# Why Use Private Variables?
+
+Instead of:
+
+```java
+account.balance = -1000000;
+```
+
+We can control access through methods.
+
+Example:
+
+```java
+account.deposit(100);
+```
+
+Benefits:
+
+- Protects data
+- Allows validation
+- Reduces bugs
+
+---
+
+# Setters and Getters
+
+Setter:
+
+```java
+public void setName(String name) {
+    this.name = name;
+}
+```
+
+Getter:
+
+```java
+public String getName() {
+    return name;
+}
+```
+
+Remember:
+
+- Setters modify values
+- Getters return values
+
+---
+
+# The this Keyword
+
+`this` refers to the current object.
+
+```java
+private String title;
+
+public void setTitle(String title) {
+    this.title = title;
+}
+```
+
+Without `this`, Java cannot distinguish between:
+
+```java
+title
+```
+
+- parameter
+
+and
+
+```java
+title
+```
+
+- instance variable
+
+---
+
+# Practice Check
+
+### What does `this` refer to?
+
+```java
+public void setYear(int year){
+    this.year = year;
+}
+```
+
+### Answer
+
+<div class="fragment">
+
+`this.year`
+
+refers to the instance variable belonging to the current object.
+
+</div>
 
 ---
 
 # Constructors
 
-- Syntax
-- return type
-- default constructors
-- Overloaded constructors
-- Overloaded methods
+Constructors initialize objects.
+
+Example:
+
+```java
+public Student() {
+
+}
+```
+
+Rules:
+
+- Same name as class
+- No return type
+- Runs automatically when an object is created
 
 ---
 
-# Static vs Instance Variables and Methods
+# Constructor Example
 
-- What is each - definition
+```java
+public Student(String name) {
+    this.name = name;
+}
+```
+
+Usage:
+
+```java
+Student s =
+    new Student("Alice");
+```
+
+---
+
+# Constructor Overloading
+
+A class may have multiple constructors.
+
+```java
+public Student() {
+
+}
+
+public Student(String name) {
+
+}
+
+public Student(String name, double gpa) {
+  ...
+}
+```
+
+Different parameter lists are required.
+
+---
+
+# Important: No Return Type
+
+Correct:
+
+```java
+public Student() {
+
+}
+```
+
+Wrong:
+
+```java
+public void Student() {
+
+}
+```
+
+Once a return type appears, it becomes a regular method.
+
+---
+
+# Default Constructors
+
+If no constructor is written:
+
+```java
+class Student {
+
+}
+```
+
+Java automatically provides a default constructor.
+
+This works:
+
+```java
+Student s =
+    new Student();
+```
+
+---
+
+# Default Constructor Rule
+
+Suppose we write:
+
+```java
+public Student(String name){
+
+}
+```
+
+Now Java does NOT automatically provide:
+
+```java
+Student()
+```
+
+This would fail:
+
+```java
+new Student();
+```
+
+unless we write that constructor ourselves.
+
+---
+
+# Practice Check
+
+### Will this compile?
+
+```java
+class Course {
+
+    public Course(String name){
+
+    }
+
+}
+
+Course c = new Course();
+```
+
+### Answer
+
+<div class="fragment">
+
+No.  The only constructor available is:
+
+```java
+Course(String name)
+```
+
+A no-argument constructor does not exist.
+
+</div>
+
+---
+
+# Method Overloading
+
+Methods may have the same name if parameter lists differ.
+
+```java
+public void addScore(int score)
+
+public void addScore(
+    int score1,
+    int score2
+)
+```
+
+This is called overloading.
 
 ---
 
 # Visibility Modifiers
 
-- Public, private
-- protected and default visibility not emphasized
-- we’re not using packages in this course
+## public
+
+Accessible from other classes.
+
+```java
+public void study() {
+
+}
+```
+
+## private
+
+Accessible only inside the class.
+
+```java
+private double gpa;
+```
+
+---
+
+# Static vs Instance Variables
+
+<!-- column -->
+
+## Instance Variable
+
+One copy per object.
+
+```java
+private String name;
+```
+
+Each object has its own value.
+
+<!-- column -->
+
+## Static Variable
+
+One copy for entire class.
+
+```java
+private static int count;
+```
+
+Shared by all objects.
+
+---
+
+# Static vs Instance Methods
+
+Static:
+
+```java
+Math.sqrt(16);
+```
+
+No object needed.
+
+Instance:
+
+```java
+student.study();
+```
+
+Requires an object.
+
+---
+
+# Practice Check
+
+### True or False
+
+A static method may be called without creating an object.
+
+### Answer
+
+<div class="fragment">
+
+True
+
+Example:
+
+```java
+Math.sqrt(25);
+```
+
+</div>
 
 ---
 
 # Reference Variables
 
-- reference variable
-- null value
-- Can only be assigned to reference variables
-- special meaning - NOWHERE/NOTHING, NOT a memory address
-- Deep copy
-- When dealing with reference variables, = doesn't do the same thing as with primitive types
+A reference variable refers to an object.
+
+Example:
+
+```java
+Book myBook;
+```
+
+The variable does not contain the object itself.
+
+It refers to the object.
 
 ---
 
-# Java Classes
+# The null Value
 
-- String
-- Scanner
+```java
+Book myBook = null;
+```
 
----
+Means:
 
-# Array of Objects
+```text
+No object exists
+```
 
-- array of objects (more accurately - array of reference variables)
+or
 
----
-
-# Practice
-
-Write a program that…
-
-- Defines a BankAccount class with a name and balance.
-- Create a program that prompts the user whether they want to open up a bank account and whether they want to make a deposit into that account.
-- A bank account cannot be created without a name, and the default balance value is 0.
-- Try to do this without using resources!!!
+```text
+Refers to nothing
+```
 
 ---
 
-# ChatGPT review possible prompt
+# Practice Check
 
-- give me a practice problem about creating classes, using constructors, setters, getters, and arrays of objects. difficulty level should be for a beginner with oop
+### Will this compile?
 
----
+```java
+double x = null;
+```
 
-# Problem: Create a Class for a Library System
+### Answer
 
-You are tasked with creating a basic library system to manage books. In this system, you'll need to represent a book and be able to store multiple books in the library.
+<div class="fragment">
 
-## Requirements
+No.
 
-### Create a class Book
+`null` may only be assigned to reference variables.
 
-- Properties:
-  - title (String)
-  - author (String)
-  - yearPublished (int)
-  - isAvailable (boolean)
-- Constructor initializes all properties.
-- Create getter and setter methods for all properties.
+</div>
 
 ---
 
-# Create a class Library
+# Reference Assignment
 
-- The class should have an array of Book objects (fixed size, e.g., 5).
-- Methods:
-  - addBook(Book book)
-  - listBooks()
-  - findBookByTitle(String title)
-- Create a main class or method to test functionality:
-  - Create a Library object.
-  - Create Book objects and add them.
-  - List all books.
-  - Search for a book by title.
+Consider:
+
+```java
+Book b1 =
+    new Book();
+
+Book b2 =
+    new Book();
+
+b1 = b2;
+```
+
+After assignment:
+
+```text
+b1 and b2
+refer to the same object
+```
 
 ---
 
-# Example Output
+# Reference Assignment Example
 
-Library contains the following books:
+```java
+Book b1 =
+    new Book();
 
-1. Title: "Harry Potter", Author: "J.K. Rowling", Year: 1997, Available: true
-2. Title: "The Hobbit", Author: "J.R.R. Tolkien", Year: 1937, Available: false
+Book b2 =
+    new Book();
 
-Searching for "Harry Potter":
+b1 = b2;
+```
 
-Found book: Title: "Harry Potter", Author: "J.K. Rowling", Year: 1997, Available: true
+Remember:
 
-Searching for "Moby Dick":
+```java
+=
+```
 
-Book not found.
+copies the reference,
+
+NOT the object.
+
+---
+
+# Practice Check
+
+### How many objects remain referenced?
+
+```java
+Book b1 =
+    new Book();
+
+Book b2 =
+    new Book();
+
+b1 = b2;
+```
+
+### Answer
+
+<div class="fragment">
+
+One.
+
+The original object referenced by `b1`
+no longer has a reference pointing to it.
+
+</div>
+
+---
+
+# Arrays of Objects
+
+```java
+Movie[] movies =
+    new Movie[5];
+```
+
+Creates:
+
+```text
+5 reference variables
+```
+
+It does NOT create five Movie objects.
+
+---
+
+# What Does the Array Contain?
+
+```java
+Movie[] movies =
+    new Movie[3];
+```
+
+Immediately after creation:
+
+```text
+movies[0] = null
+movies[1] = null
+movies[2] = null
+```
+
+No Movie objects exist yet.
+
+---
+
+# Creating Objects Inside the Array
+
+```java
+Movie[] movies =
+    new Movie[3];
+
+movies[0] =
+    new Movie();
+```
+
+Now:
+
+```text
+movies[0]
+```
+
+contains a Movie object.
+
+---
+
+# Practice Check
+
+### What is wrong?
+
+```java
+Movie[] movies =
+    new Movie[3];
+
+movies[0].play();
+```
+
+### Answer
+
+<div class="fragment">
+
+`movies[0]` is still null.
+
+A Movie object must be created first:
+
+```java
+movies[0] =
+    new Movie();
+```
+
+</div>
+
+---
+
+# Reading Object Creation Statements
+
+```java
+Course myCourse =
+    new Course();
+```
+
+Know how to identify each part.
+
+---
+
+# Practice Check
+
+### Identify each part
+
+```java
+Course myCourse =
+    new Course();
+```
+
+### Answer
+
+<div class="fragment">
+
+```java
+Course
+```
+
+Reference Type
+
+```java
+myCourse
+```
+
+Reference Variable
+
+```java
+Course()
+```
+
+Constructor
+
+</div>
+
+---
+
+# Mini Review
+
+Know how to:
+
+<!-- column -->
+- Identify classes and objects
+
+- Identify primitive and reference types
+
+- Explain encapsulation
+
+- Write setters
+
+- Write getters
+
+- Explain `this`
+
+
+- Write constructors
+<!-- column -->
+
+- Explain overloading
+
+- Explain default constructors
+
+- Explain static vs instance members
+
+- Explain null
+
+- Trace references
+
+- Use arrays of objects
+
+- Identify common runtime errors
+
+---
+
+# Practice Programming
+
+Create a `VideoGame` class.
+
+Requirements:
+
+- title
+- genre
+- hoursPlayed
+
+Include:
+
+- Constructor
+- Setters
+- Getters
+
+Then create an array capable of storing 5 VideoGame objects.
+
+---
+
+# Practice Programming
+
+Create a `Student` class.
+
+Requirements:
+
+- name
+- major
+- gpa
+
+Write:
+
+- A no-argument constructor
+- A parameterized constructor
+- Getters
+- Setters
+
+In `main`, create two Student objects and print their information.
