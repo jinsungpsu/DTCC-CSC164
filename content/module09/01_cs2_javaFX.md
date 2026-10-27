@@ -2,6 +2,16 @@
 
 ---
 
+# Overview
+
+- Connect JavaFX components to classes, objects, inheritance, and polymorphism
+- Explore a JavaFX project and its generated files
+- Distinguish the model, view, and controller
+- Build an interface using a stage, scene, and layout container
+- Trace application startup and a complete Java-only example
+
+---
+
 # JavaFX Introduction
 - JavaFX is a GUI (graphical user interface) library.
 - It is a collection of classes used to build graphical programs.
@@ -32,6 +42,34 @@ Text text = new Text("Hello World");
 - OOP is how real applications are structured.
 - Helps build modular, maintainable code.
 - Essential for JavaFX, Android, and Java Collections.
+
+---
+
+# Follow the Project Files
+
+| File | Responsibility |
+| --- | --- |
+| Application class | Starts the app and attaches content to a window |
+| FXML file | Describes UI objects and their properties |
+| Controller class | Initializes the view and responds to interaction |
+| Build configuration | Declares dependencies and build settings |
+
+Generated names vary. Find each file's role instead of memorizing its name.
+
+---
+
+# How Does the Window Open?
+
+1. The JavaFX runtime creates the application object
+2. It calls `start(Stage primaryStage)`
+3. Your code creates or loads the UI and attaches a scene
+4. `show()` displays the window
+5. The application waits for events such as user input
+
+`start()` is different from a controller's `initialize()` method.
+
+<!-- footer -->
+https://openjfx.io/javadoc/25/javafx.graphics/javafx/application/Application.html
 
 ---
 
@@ -96,8 +134,9 @@ text.setText("Hello World");
 ---
 
 # Model in JavaFX
-- Data is often stored in databases.
-- Course examples may use instance or static variables.
+- A model can be an ordinary Java object holding application data and rules.
+- A database is optional; data can live in memory or files.
+- Keep business rules separate from code that arranges or updates controls.
 
 ---
 
@@ -125,6 +164,16 @@ text.setText("Hello World");
 
 ---
 
+# MVC Example: A Course Grade Tool
+
+- **Model:** Stores scores and calculates the average
+- **View:** Displays score inputs and the result
+- **Controller:** Reads inputs, asks the model to calculate, and updates the result
+
+Changing the window layout should not require rewriting the average calculation.
+
+---
+
 # Why?
 - Organized codebase
 - Separation of concerns
@@ -147,7 +196,7 @@ https://www.tutorialspoint.com/javafx/javafx_application.htm
 ---
 
 # Stage
-A stage (window) contains all the objects of a JavaFX application.
+A stage is a top-level window. Its scene holds the UI content displayed in that window.
 
 <!-- footer -->
 https://www.tutorialspoint.com/javafx/javafx_application.htm
@@ -155,7 +204,7 @@ https://www.tutorialspoint.com/javafx/javafx_application.htm
 ---
 
 # Scene
-A scene represents the physical contents of a JavaFX application.
+A scene holds a tree of UI nodes, starting with a root node such as a layout container.
 
 <!-- footer -->
 https://www.tutorialspoint.com/javafx/javafx_application.htm
@@ -196,6 +245,51 @@ https://www.javaguides.net/2019/07/javafx-hello-world-example-tutorial.html
 
 ---
 
+# A Complete Java-Only Example
+
+In a configured JavaFX project, create `HelloApp.java`:
+
+```java
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class HelloApp extends Application {
+    @Override
+    public void start(Stage stage) {
+        Text message = new Text("Hello World");
+        StackPane root = new StackPane(message);
+        stage.setScene(new Scene(root, 400, 200));
+        stage.setTitle("My First JavaFX App");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+If the project uses packages, add its package declaration first.
+
+---
+
+# Read the Object Structure
+
+For the example, trace the containment:
+
+```text
+Stage -> Scene -> StackPane -> Text
+```
+
+- `Stage` and `Scene` are not subclasses of `Node`
+- The `StackPane` and `Text` belong to the scene graph
+- The layout container manages where its child appears
+
+---
+
 # OOP
 - JavaFX is Object-Oriented Programming applied to user interfaces.
 - Text, Pane, Scene, and Stage are objects.
@@ -210,216 +304,10 @@ https://www.javaguides.net/2019/07/javafx-hello-world-example-tutorial.html
 
 ---
 
-# Using SceneBuilder
-
----
-
-# Setting up the IDE
-- Use IntelliJ together with SceneBuilder.
-
-<!-- footer -->
-https://gluonhq.com/products/scene-builder/
-
----
-
-# A simpler way to write FXML
-- Drag and drop
-- A GUI for building GUIs
-
-![SceneBuilder](images/scenebuilder-drag-drop.png)
-
----
-
-# In the end… it’s all just code (and classes/objects)
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Text?>
-<Pane>
-  <children>
-     <Text text="Hello World" />
-  </children>
-</Pane>
-```
-
----
-
-# Library
-![Library panel](images/scenebuilder-library.png)
-
----
-
-# Hierarchy
-![Hierarchy panel](images/scenebuilder-hierarchy.png)
-
----
-
-# Nesting Objects
-![Nesting objects](images/scenebuilder-nesting.png)
-
----
-
-# Inspector
-![Inspector panel](images/scenebuilder-inspector.png)
-
----
-
-# Layout
-![Layout panel](images/scenebuilder-layout.png)
-
----
-
-# Controller
-![Controller settings](images/scenebuilder-controller.png)
-
----
-
-# Code
-![Code panel](images/scenebuilder-code.png)
-
----
-
-# fx:id
-- GUI components need an `fx:id` to be accessed from the Controller.
-- The `fx:id` becomes the reference variable.
-
-![fxid assignment](images/scenebuilder-fxid.png)
-
----
-
-# Sample Controller Skeleton (1)
-- Access via View → Show Sample Controller Skeleton.
-
-![Controller skeleton menu](images/controller-skeleton-menu.png)
-
----
-
-# Sample Controller Skeleton (2)
-- Copy generated code back into IntelliJ.
-
-![Controller skeleton example](images/controller-skeleton-example.png)
-
----
-
-# Where do I put the code?
-- Procedural programming starts from `main`.
-- Event-driven programming uses event handlers.
-- Initialization code still needs a starting location.
-
----
-
-# Initialize vs Constructor
-- Constructors cannot directly access FXML-created objects.
-- `initialize()` is called after the FXML file loads.
-
----
-
-# Initialize method
-
-```java
-@FXML
-void initialize() {
-    titleText.setText("Hello World!");
-}
-```
-
----
-
-# Try it yourself! Experiment…
-- Download and install SceneBuilder.
-- Create a JavaFX project.
-- Configure SceneBuilder in IntelliJ.
-- Explore UI components.
-
----
-
-# User Interfaces & User Experience Design
-
----
-
-# Try this…
-
-https://userinyerface.com/
-
----
-
-# UI/UX
-
-The concept of UI/UX focuses on layout, appearance, functionality, and design.
-
----
-
-# What is UX?
-
-“User experience encompasses all aspects of the end-user’s interaction with the company, its services, and its products.”
-
-– Don Norman
-
----
-
-# What is UI?
-
-A user interface is the point of interaction between the user and a digital device or product.
-
----
-
-# UI vs UX
-
-- UX is about the overall feel of the experience.
-- UI is about how interfaces look and function.
-
----
-
-# What is Good UI?
-
-- Clarity & Simplicity
-- Consistency
-- Responsiveness
-- Visual Hierarchy
-- Accessibility
-
----
-
-# What is Good UX?
-
-- User-Centered Design
-- Efficiency
-- Feedback & Interaction
-- Error Prevention & Recovery
-- Satisfaction
-
----
-
-# Find Examples
-- Good?
-- Bad?
-- Why?
-
----
-
-# What is a wireframe?
-
-A two-dimensional skeletal outline of a webpage or app.
-
----
-
-# Purpose of wireframe
-
-- Keep concepts user-focused.
-- Clarify and define features.
-- Quick and inexpensive to create.
-
----
-
-# Some simple tools
-- https://app.diagrams.net/
-- https://wireframe.cc/
-- PowerPoint
-- Whiteboard
-
----
-
-# Resources
-- https://careerfoundry.com/en/blog/ux-design/the-difference-between-ux-and-ui-design-a-laymans-guide/
-- https://careerfoundry.com/en/blog/ux-design/what-is-a-wireframe-guide/
+# Summary
+
+- JavaFX interfaces are built from interacting objects
+- FXML describes the view; controller classes provide behavior
+- MVC separates data and rules, presentation, and user interaction
+- A stage contains a scene, and layout containers organize its nodes
+- Java code can create and configure UI components directly

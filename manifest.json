@@ -182,6 +182,14 @@
                 {
                     "file": "01_cs2_javaFX.md",
                     "title": "JavaFX Basics"
+                },
+                {
+                    "file": "02_cs2_scenebuilder.md",
+                    "title": "Building JavaFX Interfaces with SceneBuilder"
+                },
+                {
+                    "file": "03_cs2_ui_ux_design.md",
+                    "title": "User Interfaces and User Experience Design"
                 }
             ]
         },
@@ -192,6 +200,14 @@
                 {
                     "file": "01_cs2_event_driven.md",
                     "title": "Event Driven Programming"
+                },
+                {
+                    "file": "02_cs2_listview.md",
+                    "title": "ListView and Observable Lists"
+                },
+                {
+                    "file": "03_cs2_layouts_input.md",
+                    "title": "JavaFX Layouts and User Input"
                 }
             ]
         },
@@ -201,7 +217,19 @@
             "lectures": [
                 {
                     "file": "01_cs2_fileio.md",
-                    "title": "File Input/Output"
+                    "title": "File Input and Exceptions"
+                },
+                {
+                    "file": "02_cs2_reading_text.md",
+                    "title": "Reading and Parsing Text Files"
+                },
+                {
+                    "file": "03_cs2_csv_files.md",
+                    "title": "Processing CSV Files"
+                },
+                {
+                    "file": "04_cs2_writing_files.md",
+                    "title": "Writing Text Files"
                 }
             ]
         },
