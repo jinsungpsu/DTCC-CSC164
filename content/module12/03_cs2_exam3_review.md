@@ -23,9 +23,11 @@ This assessment MUST be completed using D2L on a lab computer during the schedul
 - The purpose and benefits of inheritance: shared behavior, reuse, and maintainability
 - The “is-a” relationship
 - What a subclass inherits, and what it can add or customize
+- Superclass private fields remain part of the object's state; subclasses use accessible methods to work with them
 - The `extends` and `super` keywords
 - Java classes have one direct superclass
-- Constructors are not inherited; understand superclass constructor chaining
+- Understand superclass constructor chaining
+- Use `super(arguments)` to initialize superclass state; if omitted, Java attempts an implicit `super()`
 
 ---
 
@@ -35,6 +37,7 @@ This assessment MUST be completed using D2L on a lab computer during the schedul
 - **Overloading:** methods share a name but have different parameter lists.
 - Know how to tell the two apart from a short code example.
 - Know when `super` refers to superclass construction or behavior.
+- `super.method(...)` calls superclass behavior; it does not select the subclass override.
 
 ---
 
@@ -54,7 +57,7 @@ This assessment MUST be completed using D2L on a lab computer during the schedul
 
 <div class="fragment">
 
-A Java class has one direct superclass. Interfaces are a separate feature.
+A Java class has one direct superclass.
 
 </div>
 
@@ -82,11 +85,30 @@ Overriding requires a subclass method to match an inherited method's signature a
 
 - `Object` is the root superclass of Java classes.
 - A class with no declared superclass implicitly extends `Object`.
+- Trace indirect inheritance: `Object` → superclass → subclass; `String` also extends `Object`.
 - Every object has a `toString()` method.
 - Know why the default `toString()` result may not be meaningful to a user.
+- The default result looks like `ClassName@hexHash`, rather than a description of the fields.
 - Know the purpose of overriding `toString()` to describe an object's data.
 - Printing an object can call its `toString()` method automatically.
 - A subclass can build on superclass behavior without directly accessing private superclass fields.
+
+---
+
+# Writing `toString()`: Study Pattern
+
+- Use `@Override` and the signature `public String toString()`.
+- Return a string describing relevant fields; do not just print them.
+- In a subclass, combine `super.toString()` with the subclass's own fields.
+
+```java
+@Override
+public String toString() {
+    return super.toString() + ", detail=" + detail;
+}
+```
+
+This subclass pattern assumes the superclass already provides a useful `toString()`.
 
 ---
 
@@ -103,6 +125,9 @@ Overriding requires a subclass method to match an inherited method's signature a
 <div class="fragment">
 
 ### Why override `toString()`?
+</div>
+
+<div class="fragment">
 
 To provide a useful text description of an object instead of relying on the default representation.
 
@@ -117,7 +142,8 @@ To provide a useful text description of an object instead of relying on the defa
 - The declared reference type controls which methods are available to call
 - An overridden method's behavior depends on the object's actual type
 - How polymorphism supports reusable and maintainable code
-- How arrays of a superclass type can hold subclass objects
+- Recognize valid assignments such as `Base item = new Child(...);` and `Object item = new Child(...);`
+- Check local variable names too: redeclaring a name in the same scope prevents compilation
 
 ---
 
@@ -125,9 +151,23 @@ To provide a useful text description of an object instead of relying on the defa
 
 ### A superclass reference refers to a subclass object. Which implementation of an overridden method runs?
 
+```java
+class Animal {
+    public String speak() { return "Animal sound"; }
+}
+class Cat extends Animal {
+    @Override
+    public String speak() { return "Meow"; }
+}
+
+// In main:
+Animal pet = new Cat();
+System.out.println(pet.speak()); // What is printed?
+```
+
 <div class="fragment">
 
-The implementation for the object's actual class runs.
+**`Meow`** — the object's actual class is `Cat`, so `Cat.speak()` runs.
 
 </div>
 
@@ -144,12 +184,21 @@ The reference type still determines which methods can be called in the first pla
 The exam provides an `ArrayList` reference. Review how to:
 
 - Declare a list with a generic type
-- Add, access, replace, and remove items
-- Find the number of items and loop through the list
-- Use indexes, which start at zero
-- Print a list and understand how its objects are displayed
-- Use wrapper classes, such as `Integer`, instead of primitive types as generic parameters
+- Append with `add(value)`; insert with `add(index, value)`; access with `get(index)`
+- Replace with `set(index, value)`; insertion shifts items, replacement does not
+- Use `size()` for the item count; indexes start at zero
+- Use wrapper types such as `Integer`; autoboxing converts primitive values when adding them
 - Store subclass objects in a list declared for their superclass
+- `ArrayList<Object>` can hold different object types because they all share `Object`
+- `isEmpty()` checks whether the list has no items
+
+---
+
+# Reading and Displaying a List
+
+- Use `size()` and `get(i)` for a list, versus `length` and `[i]` for an array.
+- Printing the list directly displays its contents using the collection's `toString()`, rather than `Object`'s default.
+- Each element's `toString()` determines its text representation.
 
 ---
 
@@ -159,7 +208,7 @@ The exam provides an `ArrayList` reference. Review how to:
 
 <div class="fragment">
 
-**`set`**
+**`set(... , ...)`**
 
 </div>
 
@@ -167,7 +216,17 @@ The exam provides an `ArrayList` reference. Review how to:
 
 ### What should a loop use as its stopping limit when visiting every list item?
 
+</div>
+
+<div class="fragment">
+
 The list's current size; valid indexes range from zero to one less than the size.
+
+```java
+for (int i = 0; i < list.size(); i++) {
+    System.out.println(list.get(i));
+}
+```
 
 </div>
 
@@ -183,6 +242,8 @@ Be prepared to:
 - Override `toString()` to describe an object
 - Create a superclass-typed `ArrayList` containing superclass and subclass objects
 - Display objects and use shared methods to calculate a value across the list
+- Initialize an accumulator before a loop; add each object's getter result inside the loop
+- Trace which methods actually run: a constructor that assigns a field does not automatically call its setter
 
 Focus on how these ideas fit together; use the provided reference material for `ArrayList` syntax.
 
@@ -201,6 +262,10 @@ It can hold objects of the superclass and its subclasses.
 <div class="fragment">
 
 ### When displaying objects from that list, what controls each object's `toString()` behavior?
+
+</div>
+
+<div class="fragment">
 
 The actual class of each object, if the class overrides `toString()`.
 
