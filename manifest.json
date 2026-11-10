@@ -203,11 +203,15 @@
                 },
                 {
                     "file": "02_cs2_listview.md",
-                    "title": "ListView and Observable Lists"
+                    "title": "ListView and Observable Lists: The Complete Guide"
                 },
                 {
-                    "file": "03_cs2_layouts_input.md",
-                    "title": "JavaFX Layouts and User Input"
+                    "file": "03_cs2_add_remove_buttons.md",
+                    "title": "Building a Functional Add/Remove Button System"
+                },
+                {
+                    "file": "04_cs2_layouts.md",
+                    "title": "JavaFX Layouts and Visual Design"
                 }
             ]
         },
