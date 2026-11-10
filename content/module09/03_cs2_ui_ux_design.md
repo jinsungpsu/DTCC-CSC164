@@ -114,27 +114,6 @@ A two-dimensional skeletal outline of a webpage or app.
 
 ---
 
-# Plan a Small JavaFX Interface
-
-Task: Let a student enter a name and see a welcome message.
-
-```text
-Student name: [                    ]
-              [ Show welcome ]
-
-Message: Welcome, ...
-```
-
-- Choose a Label, TextField, Button, and a result display
-- Reserve space for feedback and errors
-- Decide what should happen when the name is blank
-- Map the sketch to containers and controls
-
-Button behavior will be covered with event handlers.
-
----
-
-
 # Some simple tools
 - https://app.diagrams.net/
 - https://wireframe.cc/
@@ -142,6 +121,19 @@ Button behavior will be covered with event handlers.
 - Whiteboard
 
 ---
+
+# Design a Small JavaFX Interface
+
+Task: A Restaurant Server Tablet Interface to Create an Order for a Customer
+
+- Choose a Label, TextField, Button, and a result display
+- Reserve space for feedback and errors
+- Map the sketch to containers and controls
+
+> App actions and behaviors will be covered with event handlers in the next lecture!
+
+---
+
 
 # Resources
 - https://careerfoundry.com/en/blog/ux-design/the-difference-between-ux-and-ui-design-a-laymans-guide/
